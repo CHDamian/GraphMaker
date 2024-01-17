@@ -64,6 +64,7 @@ public:
 
 private:
     edge_iterator_t add_edge(int id, int weight);
+    void del_edge(edge_iterator_t edge_to_del) noexcept;
 
 };
 

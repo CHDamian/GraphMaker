@@ -58,11 +58,20 @@ public:
 
     using node_iterator_t = std::shared_ptr<node_iterator>;
 
+    node_iterator_t node_begin();
+    node_iterator_t node_end();
+
+    node_iterator_t get_node(int id);
+
     friend class builder;
 
 protected:
 
     virtual node_iterator_t add_node(int id);
+
+    virtual bool is_valid() const;
+    void set_prototype(bool prototype) noexcept;
+    virtual void del_node(node_iterator_t node_to_del) noexcept;
 
 };
 

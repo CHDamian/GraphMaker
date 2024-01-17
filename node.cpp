@@ -30,3 +30,8 @@ std::shared_ptr<node::edge_iterator> node::add_edge(int id, int weight)
     std::map<int, int>::iterator it = edges.insert({id, weight}).first;
     return std::shared_ptr<node::edge_iterator>(new node::edge_iterator(it));
 }
+
+void node::del_edge(node::edge_iterator_t edge_to_del) noexcept
+{
+    edges.erase(edge_to_del->it);
+}
