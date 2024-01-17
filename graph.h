@@ -62,9 +62,11 @@ public:
 
 protected:
 
-    node_iterator_t add_node(int id);
+    virtual node_iterator_t add_node(int id);
 
 };
+
+
 
 
 
