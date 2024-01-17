@@ -278,3 +278,64 @@ public:
     return; // Nie było wyjątku to kończymy
 };
 ```
+
+
+## Wskazówki do konkretnych klas
+
+Żeby nie zapomieć się piszę podpowiedzi którymi warto się kierować:
+
+### graph_decorator
+
+- Pamiętać o słówku virtual przy odpowiednich funkcjach
+- is_valid() sprawdza swój warunek i jak jest ok to zwraca wynik funkcji u dekorowanego
+- Graf trzymać w shared_ptr
+- Pamiętać o prywatnym konstruktorze i usunięciu niepotrzebnych
+- Przygotować friend dla fabryki
+- acykliczny i dodatni mają zwrócić wyjątek jeżeli nie są spełnione warunki
+- spojny nie musi być valid
+
+### command
+
+- Należy trzymać iteratory do stworzonych przez nie elementów
+- Przyda się dodać jakieś zmienne kreacyjne (np id do wierzchołków)
+- add powinnien odpalać is_valid po wstawieniu i jbc to zrobić undo()
+- add() musi być strong
+- undo() musi być noexcept
+
+### factory
+
+- Wykonuje konstruktor prywatny swojego dekoratora
+- Zwraca shared_ptr stworzonego obiektu
+- Przezroczysty na wyjątki
+- Kostruktory muszą być prywatne
+- Musi istnieć singleton do którego dostęp jest przez funkcję get_instance()
+
+### builder
+
+- Jest friendem graph
+- Konstruktor jest prywatny
+- Fasada ma być friendem budowniczego
+- Budowniczych może być wiele
+- Graf trzymany w zmiennej musi być shared_ptr
+- Commandy są trzymane w shared_ptr na stosie (std::stack)
+- Przezroczysty na wyjątki
+- undo() zwraca wyjątek jeżeli nie ma co cofać (stos pusty)
+- Każda funkcja ma być strong
+- build() ma sprawdzić is_valid() i w razie czego zwrócić wyjątek
+
+### facade
+
+- Jest friendem budowniczego i on tworzy jego instancje jako shared_ptr (w pewnym sensie jest fabryką)
+- Algorytmy trzymane i przyjmowane są w shared_ptr
+- Grafy przyjmowane są jako shared_ptr
+- Należy przygotować się, że execute strategi bedzie zwracać jakąś instancję (mockupem może być void)
+
+
+### strategy
+
+- Nie jest friendem grafu
+- Należy korzystać z iteratorów do przeglądania grafu
+- Należy przemyśleć instancje zwracane jako rezultaty algorytmów
+- Są singletonami (prywatny konstruktor + get_instance())
+
+
