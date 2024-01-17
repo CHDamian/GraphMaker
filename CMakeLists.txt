@@ -3,4 +3,4 @@ project(GraphMaker)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(GraphMaker main.cpp node.cpp node.h graph.cpp graph.h)
+add_executable(GraphMaker main.cpp node.cpp node.h graph.cpp graph.h graph_maker.h)

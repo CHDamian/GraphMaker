@@ -1,5 +1,6 @@
 #include "graph.h"
 
+
 graph::node_iterator_t graph::add_node(int id)
 {
     if(nodes.find(id) != nodes.end())
