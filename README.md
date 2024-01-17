@@ -146,7 +146,7 @@ void fun()
     ptr_d->normal_fun();    // Wypisano: "Tu klasa pochodna z funkcji normalnej!"
     
     ptr_c->virtual_fun();   // Wypisano: "Tu klasa pochodna z funkcji wirtualnej!"
-    ptr_d->normal_fun();    // Wypisano: "Tu klasa bazowa z funkcji normalnej!"
+    ptr_c->normal_fun();    // Wypisano: "Tu klasa bazowa z funkcji normalnej!"
 }
 
 ```
@@ -298,7 +298,6 @@ public:
 
 - Należy trzymać iteratory do stworzonych przez nie elementów
 - Przyda się dodać jakieś zmienne kreacyjne (np id do wierzchołków)
-- add powinnien odpalać is_valid po wstawieniu i jbc to zrobić undo()
 - add() musi być strong
 - undo() musi być noexcept
 
