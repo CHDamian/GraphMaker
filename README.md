@@ -38,7 +38,7 @@ private: // Ponownie prywatne
     
     void private_fun(int a) // Późniejsza implementacja w .h
     {
-        std::cout<<"Obiekt wypisuje "<<a<<std::endl'
+        std::cout<<"Obiekt wypisuje "<<a<<std::endl;
     }
     
 public:
