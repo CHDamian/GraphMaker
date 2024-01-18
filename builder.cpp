@@ -17,3 +17,19 @@ void builder::undo() {
     command->undo();
     command_stack.pop();
 }
+
+void builder::make_spojny() {
+    // TODO: uzupełnić jak będą fabryki i dekoratory
+}
+
+void builder::make_acykliczny() {
+    // TODO: uzupełnić jak będą fabryki i dekoratory
+}
+
+void builder::make_dodatni() {
+    // TODO: uzupełnić jak będą fabryki i dekoratory
+}
+
+graph_t builder::build() {
+    return graph;
+}
