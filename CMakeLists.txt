@@ -7,4 +7,10 @@ add_executable(GraphMaker main.cpp node.cpp node.h graph.cpp graph.h graph_maker
         builder.cpp
         builder.h
         add_command.cpp
-        add_command.h)
+        add_command.h
+        add_node.cpp
+        add_node.h
+        add_edge.cpp
+        add_edge.h
+        add_single_edge.cpp
+        add_single_edge.h)
