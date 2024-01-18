@@ -4,9 +4,10 @@
 #include "builder.h"
 
 class add_command {
-private:
+protected:
     graph_t graph;
 
+    add_command(graph_t graph);
 public:
     virtual void add() = 0;
     virtual void undo() noexcept = 0;

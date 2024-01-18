@@ -15,9 +15,17 @@ private:
     graph_t graph;
     command_stack_t command_stack;
 
-    builder();
+    builder() = default;
 
 public:
+
+    class stack_empty_exception : public std::exception {
+    public:
+        [[nodiscard]] const char *what() const noexcept override {
+            return "There is no command to undo";
+        }
+    };
+
     void make_spojny();
     void make_acykliczny();
     void make_dodatni();

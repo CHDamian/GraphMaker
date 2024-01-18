@@ -68,6 +68,8 @@
 
         friend class builder;
 
+        friend class Add_node;
+
     protected:
 
         virtual node_iterator_t add_node(int id);
