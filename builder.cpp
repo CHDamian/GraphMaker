@@ -1,9 +1,9 @@
 #include "builder.h"
 #include "memory"
-#include "Add_node.h"
+#include "adder_node.h"
 
 void builder::add_node(int id) {
-    auto command = std::make_shared<Add_node>(this->graph, id);
+    auto command = std::make_shared<adder_node>(graph, id);
     command->add();
     command_stack.push(command);
 }
@@ -31,5 +31,9 @@ void builder::make_dodatni() {
 }
 
 graph_t builder::build() {
+    if(!graph->is_valid()) {
+        throw graph_invalid_exception();
+    }
+
     return graph;
 }

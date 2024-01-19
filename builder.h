@@ -4,9 +4,9 @@
 #include <memory>
 #include <stack>
 #include "graph.h"
-#include "add_command.h"
+#include "adder_command.h"
 
-using add_command_t = std::shared_ptr<add_command>;
+using add_command_t = std::shared_ptr<adder_command>;
 using command_stack_t = std::stack<add_command_t>;
 using graph_t = std::shared_ptr<graph>;
 
@@ -18,11 +18,17 @@ private:
     builder() = default;
 
 public:
-
     class stack_empty_exception : public std::exception {
     public:
         [[nodiscard]] const char *what() const noexcept override {
             return "There is no command to undo";
+        }
+    };
+
+    class graph_invalid_exception : public std::exception {
+    public:
+        [[nodiscard]] const char *what() const noexcept override {
+            return "Constructed graph is invalid";
         }
     };
 

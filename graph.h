@@ -68,7 +68,7 @@
 
         friend class builder;
 
-        friend class Add_node;
+        friend class adder_node;
 
     protected:
 
