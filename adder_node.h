@@ -13,8 +13,6 @@ public:
 
     virtual void add();
     virtual void undo() noexcept;
-
-    friend class builder;
 };
 
 

@@ -70,9 +70,15 @@
 
         friend class adder_node;
 
+        friend class adder_edge;
+
     protected:
 
         virtual node_iterator_t add_node(int id);
+
+        virtual node::edge_iterator_t add_edge(int src, int dest, int weight);
+
+        virtual void del_edge(node::edge_iterator_t edge_to_del);
 
         virtual bool is_valid() const;
 
