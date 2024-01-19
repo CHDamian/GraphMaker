@@ -41,3 +41,13 @@ graph::node_iterator_t graph::get_node(int id)
     auto it = nodes.find(id);
     return node_iterator_t(new graph::node_iterator(it));
 }
+
+node::edge_iterator_t graph::add_edge(int src, int dest, int weight) {
+    // TODO: do implementacji
+    return node::edge_iterator_t();
+}
+
+void graph::del_edge(node::edge_iterator_t edge_to_del) {
+    // TODO: do implementacji
+}
+
