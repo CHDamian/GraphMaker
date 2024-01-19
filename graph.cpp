@@ -44,6 +44,13 @@ graph::node_iterator_t graph::get_node(int id)
 
 node::edge_iterator_t graph::add_edge(int src, int dest, int weight) {
     // TODO: do implementacji
+    auto src_it = nodes.find(src);
+    auto dest_it = nodes.find(dest);
+    if(src_it == nodes.end() || dest_it == nodes.end())return node::edge_iterator_t();
+    if(src_it->second->edges.find(dest) != src_it->second->edges.end())return node::edge_iterator_t();
+
+
+
     return node::edge_iterator_t();
 }
 

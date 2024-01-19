@@ -6,9 +6,8 @@ using graph_t = std::shared_ptr<graph>;
 
 class adder_command {
 protected:
-    graph_t graph;
+    graph_t graph_ptr;
 
-    adder_command(graph_t graph);
 public:
     virtual void add() = 0;
     virtual void undo() noexcept = 0;

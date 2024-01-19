@@ -311,7 +311,7 @@ public:
 
 ### builder
 
-- Jest friendem graph
+- Jest friendem graph_ptr
 - Konstruktor jest prywatny
 - Fasada ma być friendem budowniczego
 - Budowniczych może być wiele

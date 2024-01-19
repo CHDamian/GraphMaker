@@ -27,7 +27,7 @@ public:
     class graph_invalid_exception : public std::exception {
     public:
         [[nodiscard]] const char *what() const noexcept override {
-            return "Constructed graph is invalid";
+            return "Constructed graph_ptr is invalid";
         }
     };
 
