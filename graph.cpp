@@ -42,19 +42,21 @@ graph::node_iterator_t graph::get_node(int id)
     return node_iterator_t(new graph::node_iterator(it));
 }
 
-node::edge_iterator_t graph::add_edge(int src, int dest, int weight) {
-    // TODO: do implementacji
+graph::node_egde_pair graph::add_edge(int src, int dest, int weight) {
     auto src_it = nodes.find(src);
     auto dest_it = nodes.find(dest);
-    if(src_it == nodes.end() || dest_it == nodes.end())return node::edge_iterator_t();
-    if(src_it->second->edges.find(dest) != src_it->second->edges.end())return node::edge_iterator_t();
+    if(src_it == nodes.end() || dest_it == nodes.end())return {NULL, NULL};
+    if(src_it->second->edges.find(dest) != src_it->second->edges.end())return {NULL, NULL};
 
+    graph::node_iterator_t node_it = get_node(src);
 
+    node::edge_iterator_t edge_it = src_it->second->add_edge(dest, weight);
 
-    return node::edge_iterator_t();
+    return {node_it, edge_it};
 }
 
-void graph::del_edge(node::edge_iterator_t edge_to_del) {
-    // TODO: do implementacji
+void graph::del_edge(graph::node_egde_pair edge_to_del) noexcept {
+    if(!edge_to_del.first)return;
+    edge_to_del.first->it->second->del_edge(edge_to_del.second);
 }
 

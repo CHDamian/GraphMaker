@@ -6,7 +6,6 @@ void adder_edge::add() {
 }
 
 void adder_edge::undo() noexcept {
-    if(edge1 == NULL)return;
     graph_ptr->del_edge(edge1);
     graph_ptr->del_edge(edge2);
 }

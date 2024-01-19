@@ -59,6 +59,7 @@
         };
 
         using node_iterator_t = std::shared_ptr<node_iterator>;
+        using node_egde_pair = std::pair<node_iterator_t, node::edge_iterator_t>;
 
         node_iterator_t node_begin();
 
@@ -78,9 +79,9 @@
 
         virtual node_iterator_t add_node(int id);
 
-        virtual node::edge_iterator_t add_edge(int src, int dest, int weight);
+        virtual node_egde_pair add_edge(int src, int dest, int weight);
 
-        virtual void del_edge(node::edge_iterator_t edge_to_del);
+        virtual void del_edge(node_egde_pair edge_to_del) noexcept;
 
         virtual bool is_valid() const;
 

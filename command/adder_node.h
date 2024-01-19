@@ -9,7 +9,10 @@ private:
     graph::node_iterator_t created_node;
     int id;
 public:
-    adder_node(graph_t graph, int id) : adder_command(graph), id(id) {}
+    adder_node(graph_t graph, int id) :  id(id)
+    {
+        this->graph_ptr = graph;
+    }
 
     virtual void add();
     virtual void undo() noexcept;
