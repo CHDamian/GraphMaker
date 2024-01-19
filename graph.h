@@ -72,6 +72,8 @@
 
         friend class adder_edge;
 
+        friend class adder_single_edge;
+
     protected:
 
         virtual node_iterator_t add_node(int id);

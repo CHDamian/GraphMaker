@@ -2,6 +2,7 @@
 #include "memory"
 #include "adder_node.h"
 #include "adder_edge.h"
+#include "adder_single_edge.h"
 
 void builder::add_node(int id) {
     auto command = std::make_shared<adder_node>(graph, id);
@@ -11,6 +12,12 @@ void builder::add_node(int id) {
 
 void builder::add_edge(int id_1, int id_2, int weight) {
     auto command = std::make_shared<adder_edge>(graph, id_1, id_2, weight);
+    command->add();
+    command_stack.push(command);
+}
+
+void builder::add_single_edge(int id_1, int id_2, int weight) {
+    auto command = std::make_shared<adder_single_edge>(graph, id_1, id_2, weight);
     command->add();
     command_stack.push(command);
 }
