@@ -1,7 +1,7 @@
 #ifndef GRAPHMAKER_ADDER_COMMAND_H
 #define GRAPHMAKER_ADDER_COMMAND_H
 
-#include "graph.h"
+#include "../graph.h"
 using graph_t = std::shared_ptr<graph>;
 
 class adder_command {

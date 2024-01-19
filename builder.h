@@ -4,7 +4,7 @@
 #include <memory>
 #include <stack>
 #include "graph.h"
-#include "adder_command.h"
+#include "command/adder_command.h"
 
 using add_command_t = std::shared_ptr<adder_command>;
 using command_stack_t = std::stack<add_command_t>;

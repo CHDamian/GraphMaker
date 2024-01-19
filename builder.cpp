@@ -1,8 +1,8 @@
 #include "builder.h"
 #include "memory"
-#include "adder_node.h"
-#include "adder_edge.h"
-#include "adder_single_edge.h"
+#include "command/adder_node.h"
+#include "command/adder_edge.h"
+#include "command/adder_single_edge.h"
 
 void builder::add_node(int id) {
     auto command = std::make_shared<adder_node>(graph, id);

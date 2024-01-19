@@ -1,7 +1,7 @@
 #ifndef GRAPHMAKER_ADDER_NODE_H
 #define GRAPHMAKER_ADDER_NODE_H
 
-#include "graph.h"
+#include "../graph.h"
 #include "adder_command.h"
 
 class adder_node : public adder_command {
