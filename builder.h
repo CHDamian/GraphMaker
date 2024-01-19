@@ -8,7 +8,6 @@
 
 using add_command_t = std::shared_ptr<adder_command>;
 using command_stack_t = std::stack<add_command_t>;
-using graph_t = std::shared_ptr<graph>;
 
 class builder {
 private:
