@@ -46,6 +46,16 @@
                 it--;
             }
 
+            bool operator==(edge_iterator& rhs)
+            {
+                return this->it == rhs.it;
+            }
+
+            bool operator!=(edge_iterator& rhs)
+            {
+                return this->it != rhs.it;
+            }
+
             int get_node_id() const {
                 return it->first;
             }

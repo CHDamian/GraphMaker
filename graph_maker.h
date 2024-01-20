@@ -7,6 +7,8 @@
 
 #include "graph.h"
 #include "node.h"
+#include "builder.h"
+#include "command/commands.h"
 
 
 

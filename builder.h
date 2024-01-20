@@ -11,10 +11,13 @@ using command_stack_t = std::stack<add_command_t>;
 
 class builder {
 private:
-    graph_t graph;
+    graph_t graph_ptr;
     command_stack_t command_stack;
 
-    builder() = default;
+    builder()
+    {
+        graph_ptr = graph_t(new graph());
+    };
 
 public:
     class stack_empty_exception : public std::exception {
