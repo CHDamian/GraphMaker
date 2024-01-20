@@ -48,6 +48,11 @@
                 return this->it == rhs.it;
             }
 
+            bool operator!=(node_iterator& rhs)
+            {
+                return this->it != rhs.it;
+            }
+
             int get_id() {
                 return it->first;
             }

@@ -19,6 +19,10 @@ public:
     virtual bool is_valid();
 
     friend class factory_connected;
+
+private:
+    void dfs_sort(std::map<int, std::vector<int>>& visited, int& num_of_nodes, int& last_node
+            , graph::node_iterator_t nod);
 };
 
 #endif //GRAPHMAKER_GRAPH_CONNECTED_H
