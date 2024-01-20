@@ -13,4 +13,4 @@ add_executable(GraphMaker main.cpp node.cpp node.h graph.cpp graph.h graph_maker
         command/adder_edge.cpp
         command/adder_edge.h
         command/adder_single_edge.cpp
-        command/adder_single_edge.h)
+        command/adder_single_edge.h command/commands.h)

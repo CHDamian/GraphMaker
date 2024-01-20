@@ -5,19 +5,19 @@
 #include "command/adder_single_edge.h"
 
 void builder::add_node(int id) {
-    auto command = std::make_shared<adder_node>(graph, id);
+    auto command = std::make_shared<adder_node>(graph_ptr, id);
     command->add();
     command_stack.push(command);
 }
 
 void builder::add_edge(int id_1, int id_2, int weight) {
-    auto command = std::make_shared<adder_edge>(graph, id_1, id_2, weight);
+    auto command = std::make_shared<adder_edge>(graph_ptr, id_1, id_2, weight);
     command->add();
     command_stack.push(command);
 }
 
 void builder::add_single_edge(int id_1, int id_2, int weight) {
-    auto command = std::make_shared<adder_single_edge>(graph, id_1, id_2, weight);
+    auto command = std::make_shared<adder_single_edge>(graph_ptr, id_1, id_2, weight);
     command->add();
     command_stack.push(command);
 }
@@ -45,9 +45,9 @@ void builder::make_dodatni() {
 }
 
 graph_t builder::build() {
-    if(!graph->is_valid()) {
+    if(!graph_ptr->is_valid()) {
         throw graph_invalid_exception();
     }
-
-    return graph;
+    graph_ptr->set_prototype(false);
+    return graph_ptr;
 }
