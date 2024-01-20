@@ -14,6 +14,11 @@ protected:
 
     factory_tree() = default;
 
+private:
+
+    void dfs_check_edges(std::shared_ptr<graph> graph_ptr, std::map<std::pair<int, int>, std::pair<int, bool>> &edge_checker,
+                         std::set<int> &visited, graph::node_iterator_t nod, graph::node_iterator_t parent);
+
 public:
 
     factory& get_instance()
