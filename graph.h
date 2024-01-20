@@ -19,7 +19,7 @@
     };
 
     class graph {
-    private:
+    protected:
         bool is_prototype;
         node_map nodes;
 
@@ -43,6 +43,11 @@
                 it--;
             }
 
+            bool operator==(node_iterator& rhs)
+            {
+                return this->it == rhs.it;
+            }
+
             int get_id() {
                 return it->first;
             }
@@ -61,11 +66,11 @@
         using node_iterator_t = std::shared_ptr<node_iterator>;
         using node_egde_pair = std::pair<node_iterator_t, node::edge_iterator_t>;
 
-        node_iterator_t node_begin();
+        virtual node_iterator_t node_begin();
 
-        node_iterator_t node_end();
+        virtual node_iterator_t node_end();
 
-        node_iterator_t get_node(int id);
+        virtual node_iterator_t get_node(int id);
 
         friend class builder;
 
@@ -74,6 +79,8 @@
         friend class adder_edge;
 
         friend class adder_single_edge;
+
+        friend class graph_decorator;
 
     protected:
 
@@ -85,7 +92,7 @@
 
         virtual bool is_valid() const;
 
-        void set_prototype(bool prototype) noexcept;
+        virtual void set_prototype(bool prototype) noexcept;
 
         virtual void del_node(node_iterator_t node_to_del) noexcept;
 
