@@ -22,7 +22,7 @@ std::shared_ptr<graph> factory_positive::create(std::shared_ptr<graph> graph_ptr
             int weight = edge_it->get_weight();
             if(weight <= 0)
             {
-                throw new graph_not_positive_exception();
+                throw graph_not_positive_exception();
             }
         }
     }
