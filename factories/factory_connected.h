@@ -14,6 +14,12 @@ protected:
     factory_connected() = default;
 
 public:
+
+    /** @brief Operator porownania elementow.
+             * Operator sprawdzajacy czy porownywane elementy sa rowne
+             * @param[in] rhs – ... .
+             *  bez zadnych konfilktow.
+             */
     factory& get_instance()
     {
         static factory_connected* instance = new factory_connected();

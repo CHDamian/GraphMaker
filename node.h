@@ -48,29 +48,39 @@
         public:
             edge_iterator() = delete;
 
+            /**
+         * @brief Operator inkrementacji.
+         * Inkrementuje iterator krawędzi.
+         */
             void operator++() {
                 it++;
             }
 
+            /**
+         * @brief Operator dekrementacji.
+         * Dekrementuje iterator krawędzi.
+         */
             void operator--() {
                 it--;
             }
 
-            /** @brief Operator porownania elementow.
-         * Operator sprawdzajacy czy porownywane elementy sa rowne
-         * @param[in] rhs – ... .
-         *  bez zadnych konfilktow.
-         */
+                /**
+            * @brief Operator porównania.
+            * Porównuje czy obecny iterator krawędzi jest równy podanemu iteratorowi.
+            * @param[in] rhs – Iterator krawędzi do porównania.
+            * @return True, jeśli iteratory są równe; false w przeciwnym razie.
+            */
             bool operator==(edge_iterator& rhs)
             {
                 return this->it == rhs.it;
             }
 
-            /** @brief Operator porownania elementow.
-         * Operator sprawdzajacy czy porownywane elementy sa rozne
-         * @param[in] rhs – ... .
-         *  bez zadnych konfilktow.
-         */
+                /**
+            * @brief Operator nierówności.
+            * Sprawdza, czy obecny iterator krawędzi jest różny od podanego iteratora.
+            * @param[in] rhs – Iterator krawędzi do porównania.
+            * @return True, jeśli iteratory są różne; false w przeciwnym razie.
+            */
             bool operator!=(edge_iterator& rhs)
             {
                 return this->it != rhs.it;
@@ -105,8 +115,18 @@
 
         int get_id() const;
 
+        /** @brief Operator porownania elementow.
+             * Operator sprawdzajacy czy porownywane elementy sa rowne
+             * @param[in] rhs – ... .
+             *  bez zadnych konfilktow.
+             */
         edge_iterator_t edge_begin();
 
+        /** @brief Operator porownania elementow.
+             * Operator sprawdzajacy czy porownywane elementy sa rowne
+             * @param[in] rhs – ... .
+             *  bez zadnych konfilktow.
+             */
         edge_iterator_t edge_end();
 
         friend class graph;

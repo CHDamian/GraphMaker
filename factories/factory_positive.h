@@ -14,6 +14,12 @@ protected:
     factory_positive() = default;
 
 public:
+    
+    /** @brief Operator porownania elementow.
+             * Operator sprawdzajacy czy porownywane elementy sa rowne
+             * @param[in] rhs – ... .
+             *  bez zadnych konfilktow.
+             */
     factory& get_instace()
     {
         static factory_positive* instance = new factory_positive();

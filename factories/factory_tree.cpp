@@ -7,6 +7,13 @@
 #include "../decorators/graph_decorator.h"
 #include "../decorators/graph_tree.h"
 
+
+/** @brief Stworz graf dodatni.
+         * Tworzy graf dodatni
+         * @param[in] graph_ptr - shared pointer
+         * @return ...
+         *  bez zadnych konfilktow.
+         */
 void factory_tree::dfs_check_edges(std::shared_ptr<graph> graph_ptr, std::map<std::pair<int, int>,
         std::pair<int, bool>>& edge_checker, std::set<int> &visited, graph::node_iterator_t nod, graph::node_iterator_t parent)
 {

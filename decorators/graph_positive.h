@@ -17,6 +17,14 @@ protected:
 public:
     graph_positive() = delete;
 
+    /** @brief Dodaj krawedz.
+         * Dodaje krawedz o podanym @param[in] id
+         * @param[in] src - ...
+         * @param[in] dest - ...
+         * @param[in] weight - waga krawedzi
+         * @return Krawedz
+         *  bez zadnych konfilktow.
+         */
     virtual node_egde_pair add_edge(int src, int dest, int weight);
 
     friend class factory_positive;
