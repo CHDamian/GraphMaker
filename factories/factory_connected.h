@@ -8,6 +8,7 @@
 
 #include "factory.h"
 
+/**< Fabryka do tworzenia spojnych grafow */
 class factory_connected : public factory
 {
 protected:
@@ -15,22 +16,21 @@ protected:
 
 public:
 
-    /** @brief Operator porownania elementow.
-             * Operator sprawdzajacy czy porownywane elementy sa rowne
-             * @param[in] rhs – ... .
-             *  bez zadnych konfilktow.
-             */
+    /** @brief Pobierz instancje klasy.
+    * Pobiera instancje klasy
+    * @return Jedyny obiekt klasy factory_connected
+    *  bez zadnych konfilktow.
+    */
     static factory& get_instance()
     {
         static factory_connected* instance = new factory_connected();
         return *instance;
     }
 
-    /** @brief Pobierz wierzcholek.
-    * Pobiera wierzcholek o podanym @param[in] id
-    * @param[in] id - id pobieranego wierzcholka
-    * @return Wierzcholek o podanym id
-    *  bez zadnych konfilktow.
+    /** @brief Stworz graf spojny.
+    * Opakowuje otrzymany graf w spojny dekorator
+    * @param[in] graph_ptr - wskaznik do grafu ktory nalezy opakowac
+    * @return Graf opakowany w spojny dekorator.
     */
     virtual std::shared_ptr<graph> create(std::shared_ptr<graph> graph_ptr);
 };

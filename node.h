@@ -41,7 +41,7 @@
         /**< Iterator krawedzi */
         class edge_iterator {
         private:
-            std::map<int, int>::iterator it;
+            std::map<int, int>::iterator it;/**< Iterator wewnetrzny */
 
             edge_iterator(std::map<int, int>::iterator it) : it(it) {}
 
@@ -49,33 +49,33 @@
             edge_iterator() = delete;
 
             /**
-         * @brief Operator inkrementacji.
-         * Inkrementuje iterator krawędzi.
-         */
+             * @brief Operator inkrementacji.
+             * Inkrementuje iterator krawędzi.
+             */
             void operator++() {
                 it++;
             }
 
             /**
-         * @brief Operator dekrementacji.
-         * Dekrementuje iterator krawędzi.
-         */
+             * @brief Operator dekrementacji.
+             * Dekrementuje iterator krawędzi.
+             */
             void operator--() {
                 it--;
             }
 
-                /**
-            * @brief Operator porownania.
-            * Porownuje czy obecny iterator krawedzi jest rowny podanemu iteratorowi.
-            * @param[in] rhs – Iterator krawedzi do porównania.
-            * @return True, jesli iteratory sa rowne; false w przeciwnym razie.
+            /**
+            * @brief Operator porównania.
+            * Porównuje czy obecny iterator krawędzi jest równy podanemu iteratorowi.
+            * @param[in] rhs – Iterator krawędzi do porównania.
+            * @return True, jeśli iteratory są równe; false w przeciwnym razie.
             */
             bool operator==(edge_iterator& rhs)
             {
                 return this->it == rhs.it;
             }
 
-                /**
+            /**
             * @brief Operator nierówności.
             * Sprawdza, czy obecny iterator krawędzi jest różny od podanego iteratora.
             * @param[in] rhs – Iterator krawędzi do porównania.
@@ -88,20 +88,18 @@
 
 
             /** @brief Pobierz id wierzcholka.
-         * Pobiera id wierzcholka
-         * @return Id wierzcholka
-         *  bez zadnych konfilktow.
-         */
+             * Pobiera id wierzcholka
+             * @return Id wierzcholka
+             */
             int get_node_id() const {
                 return it->first;
             }
 
 
             /** @brief Pobierz wage krawedzi.
-         * Pobiera wage krawedzi
-         * @return Waga krawedzi
-         *  bez zadnych konfilktow.
-         */
+             * Pobiera wage krawedzi
+             * @return Waga krawedzi
+             */
             int get_weight() const {
                 return it->second;
             }
@@ -115,18 +113,16 @@
 
         int get_id() const;
 
-        /** @brief Operator porownania elementow.
-             * Operator sprawdzajacy czy porownywane elementy sa rowne
-             * @param[in] rhs – ... .
-             *  bez zadnych konfilktow.
-             */
+        /** @brief Poczatek listy krawedzi.
+         * Zwraca iterator na poczatek listy krawedzi
+         * @return Iterator na poczatek listy.
+         */
         edge_iterator_t edge_begin();
 
-        /** @brief Operator porownania elementow.
-             * Operator sprawdzajacy czy porownywane elementy sa rowne
-             * @param[in] rhs – ... .
-             *  bez zadnych konfilktow.
-             */
+        /** @brief Koniec listy krawedzi.
+         * Zwraca iterator na koniec listy krawedzi
+         * @return Iterator na koniec listy.
+         */
         edge_iterator_t edge_end();
 
         friend class graph;
@@ -146,9 +142,8 @@
 
 
         /** @brief Usun krawedz.
-         * Usun krawedz @param[in] edge_to_del
+         * Usun krawedz z iteratora @param[in] edge_to_del
          * @param[in] edge_to_del – krawedz grafu do usuniecia.
-         *  bez zadnych konfilktow.
          */
         void del_edge(edge_iterator_t edge_to_del) noexcept;
 

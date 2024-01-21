@@ -11,6 +11,7 @@
 
     using node_map = std::map<int, node_t>;
 
+    /**< Wyjatek dodania tego samego wierzcholka */
     class multiple_nodes_adding_exception : public std::exception {
     public:
         [[nodiscard]] const char *what() const noexcept override {
@@ -20,81 +21,79 @@
 
     class graph {
     protected:
-        bool is_prototype;
+        bool is_prototype; /**< Czy graf jest w trakcie budowy */
         node_map nodes; /**< Wierzcholek */
 
         graph() : is_prototype(true) {}
 
     public:
+        /**< Iterator do listy wierzcholkow */
         class node_iterator {
         private:
-            node_map::iterator it;
+            node_map::iterator it; /**< Iterator wewnetrzny */
 
             node_iterator(node_map::iterator it) : it(it) {}
 
         public:
             node_iterator() = delete;
 
-            /** @brief Operator porownania elementow.
-             * Operator sprawdzajacy czy porownywane elementy sa rowne
-             * @param[in] rhs – ... .
-             *  bez zadnych konfilktow.
+            /**
+             * @brief Operator inkrementacji.
+             * Inkrementuje iterator wierzcholkow.
              */
             void operator++() {
                 it++;
             }
 
-            /** @brief Operator porownania elementow.
-             * Operator sprawdzajacy czy porownywane elementy sa rowne
-             * @param[in] rhs – ... .
-             *  bez zadnych konfilktow.
+            /**
+             * @brief Operator dekrementacji.
+             * Dekrementuje iterator wierzcholkow.
              */
             void operator--() {
                 it--;
             }
 
-            /** @brief Operator porownania elementow.
-             * Operator sprawdzajacy czy porownywane elementy sa rowne
-             * @param[in] rhs – ... .
-             *  bez zadnych konfilktow.
-             */
+            /**
+            * @brief Operator porównania.
+            * Porównuje czy obecny iterator wierzcholka jest równy podanemu iteratorowi.
+            * @param[in] rhs – Iterator wierzcholka do porównania.
+            * @return True, jeśli iteratory są równe; false w przeciwnym razie.
+            */
             bool operator==(node_iterator& rhs)
             {
                 return this->it == rhs.it;
             }
 
-            /** @brief Operator porownania elementow.
-             * Operator sprawdzajacy czy porownywane elementy sa rozne
-             * @param[in] rhs – ... .
-             *  bez zadnych konfilktow.
-             */
+            /**
+            * @brief Operator nierówności.
+            * Sprawdza, czy obecny iterator wierzcholka jest różny od podanego iteratora.
+            * @param[in] rhs – Iterator wierzcholka do porównania.
+            * @return True, jeśli iteratory są różne; false w przeciwnym razie.
+            */
             bool operator!=(node_iterator& rhs)
             {
                 return this->it != rhs.it;
             }
 
-            /** @brief Pobierz id .
-             * Pobiera id ...
-             * @return Id ...
-             *  bez zadnych konfilktow.
+            /** @brief Pobierz id wierzcholka.
+             * Pobiera id wierzcholka
+             * @return Id wierzcholka
              */
             int get_id() {
                 return it->first;
             }
 
-            /** @brief Operator porownania elementow.
-             * Operator sprawdzajacy czy porownywane elementy sa rowne
-             * @param[in] rhs – ... .
-             *  bez zadnych konfilktow.
+            /** @brief Poczatek listy krawedzi.
+             * Zwraca iterator na poczatek listy krawedzi
+             * @return Iterator na poczatek listy.
              */
             node::edge_iterator_t edge_begin() {
                 return it->second->edge_begin();
             }
 
-            /** @brief Operator porownania elementow.
-             * Operator sprawdzajacy czy porownywane elementy sa rowne
-             * @param[in] rhs – ... .
-             *  bez zadnych konfilktow.
+            /** @brief Koniec listy krawedzi.
+             * Zwraca iterator na koniec listy krawedzi
+             * @return Iterator na koniec listy.
              */
             node::edge_iterator_t edge_end() {
                 return it->second->edge_end();
@@ -106,25 +105,24 @@
         using node_iterator_t = std::shared_ptr<node_iterator>;
         using node_egde_pair = std::pair<node_iterator_t, node::edge_iterator_t>;
 
-        /** @brief Operator porownania elementow.
-             * Operator sprawdzajacy czy porownywane elementy sa rowne
-             * @param[in] rhs – ... .
-             *  bez zadnych konfilktow.
-             */
+        /** @brief Poczatek listy wierzcholkow.
+         * Zwraca iterator na poczatek listy wierzcholkow.
+         * @return Iterator na poczatek listy.
+         */
         virtual node_iterator_t node_begin();
 
-        /** @brief Operator porownania elementow.
-             * Operator sprawdzajacy czy porownywane elementy sa rowne
-             * @param[in] rhs – ... .
-             *  bez zadnych konfilktow.
-             */
+        /** @brief Koniec listy wierzcholkow.
+         * Zwraca iterator na koniec listy wierzcholkow.
+         * @return Iterator na koniec listy.
+         */
         virtual node_iterator_t node_end();
 
-        /** @brief Operator porownania elementow.
-             * Operator sprawdzajacy czy porownywane elementy sa rowne
-             * @param[in] rhs – ... .
-             *  bez zadnych konfilktow.
-             */
+        /** @brief Dodaj krawedz.
+         * Znajdz wierzcholek o id rownym @param[in] id
+         * @param[in] id   – id wierzcholka
+         * @return Iterator do wierzcholka, jezeli istnieje
+         *  lub koniec listy.
+         */
         virtual node_iterator_t get_node(int id);
 
         friend class builder;
@@ -144,22 +142,24 @@
 
 
         /** @brief Dodaj krawedz.
-         * Dodaje krawedz ...
-         * @param[in] src - ...
-         * @param[in] dest - ...
+         * Dodaje krawedz do grafu.
+         * @param[in] src - wierzcholek wychodzacy
+         * @param[in] dest - wierzcholek wchodzacy
          * @param[in] weight - waga krawedzi
-         * @return Krawedz
-         *  bez zadnych konfilktow.
+         * @return Para iteratorow do wierzcholka wychodzacego i krawedzi.
          */
         virtual node_egde_pair add_edge(int src, int dest, int weight);
 
         /** @brief Usun krawedz.
          * Usun krawedz @param[in] edge_to_del
-         * @param[in] edge_to_del – krawedz grafu do usuniecia.
-         *  bez zadnych konfilktow.
+         * @param[in] edge_to_del – krawedz grafu do usuniecia z wierzcholkiem.
          */
         virtual void del_edge(node_egde_pair edge_to_del) noexcept;
 
+        /** @brief Czy graf jest ok.
+         * Sprawdza, czy warunki nalozone na graf sa spelnikne.
+         * @return True jezeli sa spelnione, lub false w przeciwnym wypadku.
+         */
         virtual bool is_valid() const;
 
         virtual void set_prototype(bool prototype) noexcept;
@@ -167,7 +167,6 @@
         /** @brief Usun wierzcholek.
          * Usuwa podany wierzcholek
          * @param[in] node_to_del - usuwany wierzcholek
-         *  bez zadnych konfilktow.
          */
         virtual void del_node(node_iterator_t node_to_del) noexcept;
 
