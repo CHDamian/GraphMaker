@@ -47,3 +47,16 @@ add_executable(GraphMaker main.cpp node.cpp node.h graph.cpp graph.h graph_maker
         strategy/distance/bellman_ford.h
         strategy/distance/dijkstra.cpp
         strategy/distance/dijkstra.h)
+
+find_package(Doxygen)
+if (DOXYGEN_FOUND)
+    # Wskazujemy lokalizacją pliku konfiguracyjnego i podajemy jego docelową lokalizację w folderze, gdzie następuje kompilacja.
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile @ONLY)
+    # Dodajemy cel doc: użycie make doc spowoduje wywołanie doxygena z odpowiednim plikiem konfiguracyjnym w folderze kompilacji.
+    # Na wyjście zostanie wypisany odpowiedni komentarz.
+    add_custom_target(doc
+            ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile
+            WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+            COMMENT "Generating API documentation with Doxygen"
+            )
+endif (DOXYGEN_FOUND)
