@@ -33,7 +33,7 @@ public:
 
     /** @brief Pobierz instancje klasy.
     * Pobiera instancje klasy
-    * @return Jedyny obiekt klasy factory_connected
+    * @return Jedyny obiekt klasy factory_tree
     *  bez zadnych konfilktow.
     */
     static factory& get_instance()
