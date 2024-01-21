@@ -12,7 +12,7 @@ class factory{
 
 protected:
 
-    factory();
+    factory() = default;
 
 public:
 
