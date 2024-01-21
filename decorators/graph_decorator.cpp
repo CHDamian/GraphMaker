@@ -55,7 +55,7 @@ graph::node_egde_pair graph_decorator::add_edge(int src, int dest, int weight)
          */
 void graph_decorator::del_edge(node_egde_pair edge_to_del) noexcept
 {
-    return del_edge(edge_to_del);
+    return graph_ptr->del_edge(edge_to_del);
 }
 
 /** @brief Usun wierzcholek.
@@ -65,7 +65,7 @@ void graph_decorator::del_edge(node_egde_pair edge_to_del) noexcept
          */
 bool graph_decorator::is_valid() const
 {
-    return is_valid();
+    return graph_ptr->is_valid();
 }
 
 /** @brief Usun wierzcholek.
@@ -75,7 +75,7 @@ bool graph_decorator::is_valid() const
          */
 void graph_decorator::set_prototype(bool prototype) noexcept
 {
-    return set_prototype(prototype);
+    return graph_ptr->set_prototype(prototype);
 }
 
 /** @brief Usun wierzcholek.
@@ -85,5 +85,5 @@ void graph_decorator::set_prototype(bool prototype) noexcept
          */
 void graph_decorator::del_node(node_iterator_t node_to_del) noexcept
 {
-    return del_node(node_to_del);
+    return graph_ptr->del_node(node_to_del);
 }

@@ -50,7 +50,7 @@ bool graph_tree::is_valid() const
     std::map<std::pair<int, int>, std::pair<int, bool>> edge_checker;
     std::set<int> visited;
 
-    for(auto it = graph_ptr->node_begin(); it != graph_ptr->node_end(); ++(*it))
+    for(auto it = graph_ptr->node_begin(); *it != *(graph_ptr->node_end()); ++(*it))
     {
         try {
             if (visited.find(it->get_id()) == visited.end())dfs_check_edges(edge_checker, visited, it, it);
@@ -112,7 +112,7 @@ void graph_tree::del_edge(graph::node_egde_pair edge_to_del) noexcept
 void graph_tree::find_and_union() noexcept
 {
     united.clear();
-    for(auto it = graph_ptr->node_begin(); it != graph_ptr->node_end(); ++(*it))
+    for(auto it = graph_ptr->node_begin(); *it != *(graph_ptr->node_end()); ++(*it))
     {
         int child = it->get_id();
         united[child] = child;

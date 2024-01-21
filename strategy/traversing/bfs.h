@@ -4,6 +4,8 @@
 #include "traversing.h"
 
 class bfs : public traversing {
+protected:
+    bfs() = default;
 public:
 
         /**
@@ -14,6 +16,12 @@ public:
      * @throws node_not_exist_exception Jeśli wierzchołek nie istnieje w grafie.
      */
     virtual graph_t execute(graph_t graph_ptr, int node_id);
+
+    static bfs& get_instance()
+    {
+        static bfs* instance = new bfs();
+        return *instance;
+    }
 };
 
 

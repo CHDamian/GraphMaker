@@ -16,11 +16,11 @@ protected:
 public:
 
     /** @brief Operator porownania elementow.
-    * Operator sprawdzajacy czy porownywane elementy sa rowne
-    * @param[in] rhs – ... .
-    *  bez zadnych konfilktow.
-    */
-    factory& get_instance()
+             * Operator sprawdzajacy czy porownywane elementy sa rowne
+             * @param[in] rhs – ... .
+             *  bez zadnych konfilktow.
+             */
+    static factory& get_instance()
     {
         static factory_connected* instance = new factory_connected();
         return *instance;
