@@ -38,4 +38,4 @@ add_executable(GraphMaker main.cpp node.cpp node.h graph.cpp graph.h graph_maker
         strategy/traversing/traversing.cpp
         strategy/traversing/traversing.h
         strategy/distance/distance_result.cpp
-        strategy/distance/distance_result.h)
+        strategy/distance/distance_result.h strategy/traversing/dfs.cpp strategy/traversing/bfs.h)
