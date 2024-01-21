@@ -17,7 +17,7 @@ bool distance::exists_dist(distance_result_t result_proxy, int id) const
 
 int distance::get_dist(distance_result_t result_proxy, int id)
 {
-    return result_proxy->exists(id);
+    return result_proxy->get(id);
 }
 
 void distance::del_dist(distance_result_t result_proxy, int id)

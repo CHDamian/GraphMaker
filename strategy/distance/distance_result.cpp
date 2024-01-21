@@ -3,7 +3,7 @@
 
 void distance_result::add(int id)
 {
-    distance_calc[id] = NEG_INFINITY_DISTANCE;
+    distance_calc[id] = INFINITY_DISTANCE;
 }
 
 void distance_result::add(int id, int dist)

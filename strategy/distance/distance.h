@@ -5,6 +5,13 @@
 #include "../../command/adder_command.h"
 #include "distance_result.h"
 
+class starting_node_not_exist : public std::exception{
+public:
+    [[nodiscard]] const char *what() const noexcept override {
+        return "Graph does not contain starting node!";
+    }
+};
+
 class distance {
 protected:
     void add_dist(distance_result_t result_proxy, int id);

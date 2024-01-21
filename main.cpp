@@ -52,6 +52,8 @@ int main() {
 
 #endif
 
+
+
 #ifdef DFS_TEST
     auto bul = facade::make();
 
@@ -108,5 +110,18 @@ int main() {
         }
         cout<<endl<<endl;
     }
+#endif
+
+
+#ifdef BELLMAN_FORD_TEST
+
+    distance_result_t result = bellman_ford::get_instance().execute(gr, 1);
+
+
+    for(auto it = result->begin(); it != result->end(); it++)
+    {
+        cout<<"Node: "<<it->first<<" | Edge: "<<it->second<<endl;
+    }
+
 #endif
 }
