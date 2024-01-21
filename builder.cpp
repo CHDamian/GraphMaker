@@ -4,6 +4,8 @@
 #include "command/adder_edge.h"
 #include "command/adder_single_edge.h"
 
+#include "factories/factories.h"
+
 void builder::add_node(int id) {
     auto command = std::make_shared<adder_node>(graph_ptr, id);
     command->add();
@@ -32,16 +34,16 @@ void builder::undo() {
     command_stack.pop();
 }
 
-void builder::make_spojny() {
-    // TODO: uzupełnić jak będą fabryki i dekoratory
+void builder::make_connected() {
+    graph_ptr = factory_connected::get_instance().create(graph_ptr);
 }
 
-void builder::make_acykliczny() {
-    // TODO: uzupełnić jak będą fabryki i dekoratory
+void builder::make_tree() {
+    graph_ptr = factory_tree::get_instance().create(graph_ptr);
 }
 
-void builder::make_dodatni() {
-    // TODO: uzupełnić jak będą fabryki i dekoratory
+void builder::make_positive() {
+    graph_ptr = factory_positive::get_instance().create(graph_ptr);
 }
 
 graph_t builder::build() {

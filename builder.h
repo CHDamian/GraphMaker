@@ -34,9 +34,9 @@ public:
         }
     };
 
-    void make_spojny();
-    void make_acykliczny();
-    void make_dodatni();
+    void make_connected();
+    void make_tree();
+    void make_positive();
 
     void add_node(int id);
     void add_edge(int id_1, int id_2, int weight);
