@@ -6,8 +6,8 @@
 
 class adder_edge : public adder_command {
 protected:
-    graph::node_egde_pair edge1, edge2;
-    int id1, id2, weight;
+    graph::node_egde_pair edge1, edge2; /**< Dodane krawedzie */
+    int id1, id2, weight; /**< Zrodlo, cel i dodawanej krawedzi */
 public:
     adder_edge(std::shared_ptr<graph> graph_ptr, int id1, int id2, int weight): id1(id1), id2(id2), weight(weight)
     {
@@ -15,8 +15,14 @@ public:
         edge1 = {NULL, NULL};
         edge2 = {NULL, NULL};
     }
-
+    /** @brief Dodawanie krawedzi.
+    * Dodaje krawedz do grafu
+    */
     virtual void add();
+    /** @brief Cofanie krawedzi.
+    * Cofa krawedz stworzona za pomoca funkcji add
+    *  bez zadnych konfilktow.
+    */
     virtual void undo() noexcept;
 };
 
