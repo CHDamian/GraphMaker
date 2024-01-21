@@ -7,6 +7,7 @@
 
 #include "distance.h"
 
+/**< Wyjatek wyrzucany w przypadku braku poczatkowego wierzcholka w grafie */
 class negative_edge_in_graph_exception : public std::exception{
 public:
     [[nodiscard]] const char *what() const noexcept override {
