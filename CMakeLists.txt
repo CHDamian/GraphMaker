@@ -30,4 +30,18 @@ add_executable(GraphMaker main.cpp node.cpp node.h graph.cpp graph.h graph_maker
         factories/factory_connected.h
         factories/factory_positive.cpp
         factories/factory_positive.h
-        command/commands.h)
+        command/commands.h
+        graph_facade.cpp
+        graph_facade.h
+        strategy/distance/distance.cpp
+        strategy/distance/distance.h
+        strategy/traversing/traversing.cpp
+        strategy/traversing/traversing.h
+        strategy/distance/distance_result.cpp
+        strategy/distance/distance_result.h
+        strategy/traversing/dfs.cpp
+        strategy/traversing/dfs.h
+        strategy/traversing/bfs.h
+        strategy/traversing/bfs.cpp
+        strategy/distance/bellman_ford.cpp
+        strategy/distance/bellman_ford.h)

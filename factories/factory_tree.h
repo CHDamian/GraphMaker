@@ -7,6 +7,7 @@
 
 
 #include "factory.h"
+#include <set>
 
 class factory_tree : public factory
 {

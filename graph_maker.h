@@ -8,7 +8,11 @@
 #include "graph.h"
 #include "node.h"
 #include "builder.h"
+#include "graph_facade.h"
 #include "command/commands.h"
+#include "strategy/strategies.h"
+#include "factories/factories.h"
+#include "decorators/decorators.h"
 
 
 

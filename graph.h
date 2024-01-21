@@ -64,20 +64,20 @@
             }
 
             /** @brief Operator porownania elementow.
-         * Operator sprawdzajacy czy porownywane elementy sa rozne
-         * @param[in] rhs – ... .
-         *  bez zadnych konfilktow.
-         */
+             * Operator sprawdzajacy czy porownywane elementy sa rozne
+             * @param[in] rhs – ... .
+             *  bez zadnych konfilktow.
+             */
             bool operator!=(node_iterator& rhs)
             {
                 return this->it != rhs.it;
             }
 
             /** @brief Pobierz id .
-         * Pobiera id ...
-         * @return Id ...
-         *  bez zadnych konfilktow.
-         */
+             * Pobiera id ...
+             * @return Id ...
+             *  bez zadnych konfilktow.
+             */
             int get_id() {
                 return it->first;
             }

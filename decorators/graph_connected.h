@@ -6,6 +6,7 @@
 #define GRAPHMAKER_GRAPH_CONNECTED_H
 
 
+#include <vector>
 #include "graph_decorator.h"
 
 /**< Dekorator grafu spojnego */
