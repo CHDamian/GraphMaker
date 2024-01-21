@@ -26,6 +26,12 @@ public:
         return *instance;
     }
 
+    /** @brief Pobierz wierzcholek.
+    * Pobiera wierzcholek o podanym @param[in] id
+    * @param[in] id - id pobieranego wierzcholka
+    * @return Wierzcholek o podanym id
+    *  bez zadnych konfilktow.
+    */
     virtual std::shared_ptr<graph> create(std::shared_ptr<graph> graph_ptr);
 };
 
