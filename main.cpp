@@ -22,7 +22,7 @@ public:
 #include "strategy/traversing/dfs.h"
 #include "strategy/traversing/bfs.h"
 
-#define BFS_TEST
+#define DFS_TEST
 
 int main() {
 
@@ -67,7 +67,7 @@ int main() {
     auto gr = bul->build();
 
     auto fac = graph_facade();
-    fac.set_traversing(std::make_shared<dfs>());
+    fac.set_traversing(std::make_shared<dfs>(dfs::get_instance()));
 
     auto gr_result = fac.execute_traversing(gr, 2);
 
@@ -96,7 +96,7 @@ int main() {
     auto gr = bul->build();
 
     auto fac = graph_facade();
-    fac.set_traversing(std::make_shared<bfs>());
+    fac.set_traversing(std::make_shared<bfs>(bfs::get_instance()));
 
     auto gr_result = fac.execute_traversing(gr, 2);
 
