@@ -22,9 +22,10 @@ public:
 #include "strategy/traversing/dfs.h"
 #include "strategy/traversing/bfs.h"
 
-//#define BFS_TEST
-#define DIJKSTRA_TEST
-#define TEST_DAMIANA
+
+//#define DIJKSTRA_TEST
+//#define TEST_DAMIANA
+#define TREE_TEST
 
 int main() {
 
@@ -54,6 +55,48 @@ int main() {
 
 #endif
 
+#ifdef TREE_TEST
+    auto fac = graph_facade();
+    auto bul = fac.make_graph();
+
+    bul->add_node(1);
+    bul->add_node(2);
+    bul->add_node(3);
+    bul->add_edge(1,2,12);
+    bul->add_single_edge(2,3,23);
+    bul->add_edge(3,2,13);
+    try{
+        bul->make_tree();
+    }catch (exception e)
+    {
+        cout<<"Zlapano: "<<e.what()<<endl;
+    }
+    bul->undo();
+    bul->make_tree();
+
+    graph_t gr = NULL;
+    try{
+        gr = bul->build();
+    }catch (exception e)
+    {
+        cout<<"Zlapano: "<<e.what()<<endl;
+    }
+    bul->add_single_edge(3,2,23);
+
+    gr = bul->build();
+
+    for(auto node_it = gr->node_begin(); *node_it != *(gr->node_end()); ++(*node_it))
+    {
+        cout<<"Node: "<<node_it->get_id()<<endl;
+        cout<<"Edges:";
+        for(auto edge_it = node_it->edge_begin(); *edge_it != *(node_it->edge_end()); ++(*edge_it))
+        {
+            cout<<" "<<edge_it->get_node_id()<<"("<<edge_it->get_weight()<<")";
+        }
+        cout<<endl<<endl;
+    }
+
+#endif
 
 
 #ifdef DFS_TEST
