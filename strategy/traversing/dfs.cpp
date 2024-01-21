@@ -24,7 +24,7 @@ graph_t dfs::execute(graph_t graph_ptr, int node_id) {
         auto actual_node_it = graph_ptr->get_node(actual_node);
         for(auto edge_it = actual_node_it->edge_begin();edge_it != actual_node_it->edge_end();++(*edge_it)) {
             int next_node_id = edge_it->get_node_id();
-            if(used_nodes_set.find(next_node_id) == used_nodes_set.end()) {
+            if(used_nodes_set.find(next_node_id) != used_nodes_set.end()) {
                 continue;
             }
 
@@ -35,7 +35,7 @@ graph_t dfs::execute(graph_t graph_ptr, int node_id) {
 
             auto next_node_it = graph_ptr->get_node(next_node_id);
             for(auto next_edge_it = next_node_it->edge_begin();next_edge_it != next_node_it->edge_end();++(*next_edge_it)) {
-                if(used_nodes_set.find(next_edge_it->get_node_id()) == used_nodes_set.end()) {
+                if(used_nodes_set.find(next_edge_it->get_node_id()) != used_nodes_set.end()) {
                     continue;
                 }
 
