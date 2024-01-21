@@ -9,7 +9,7 @@ class distance_result {
 
     void add(int id);
     void add(int id, int dist);
-    bool exists(int id);
+    bool exists(int id) const;
     int get(int id);
     void del(int id);
 

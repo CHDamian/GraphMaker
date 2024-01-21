@@ -11,7 +11,7 @@ void distance_result::add(int id, int dist)
     distance_calc[id] = dist;
 }
 
-bool distance_result::exists(int id)
+bool distance_result::exists(int id) const
 {
     return distance_calc.find(id) == distance_calc.end();
 }
