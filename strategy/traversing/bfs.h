@@ -8,7 +8,7 @@ protected:
     bfs() = default;
 public:
 
-        /**
+     /**
      * @brief Wykonuje algorytm BFS na grafie.
      * @param[in] graph_ptr - Wskaźnik do grafu.
      * @param[in] node_id - Id wierzcholka grafu na ktorym rozpoczyna sie przeszukiwanie.

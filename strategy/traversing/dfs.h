@@ -8,7 +8,7 @@ protected:
     dfs() = default;
 public:
 
-        /**
+     /**
      * @brief Wykonuje algorytm DFS na grafie.
      * @param[in] graph_ptr - Wskaźnik do grafu.
      * @param[in] node_id - Id wierzcholka grafu na ktorym rozpoczyna sie przeszukiwanie.
