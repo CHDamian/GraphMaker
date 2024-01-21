@@ -18,6 +18,9 @@ public:
 
 #endif
 
+#include "graph_facade.h"
+#include "strategy/traversing/dfs.h"
+
 int main() {
 
     auto bul = facade::make();
@@ -31,7 +34,23 @@ int main() {
     bul->undo();
     auto gr = bul->build();
 
-    for(auto node_it = gr->node_begin(); *node_it != *(gr->node_end()); ++(*node_it))
+//    for(auto node_it = gr->node_begin(); *node_it != *(gr->node_end()); ++(*node_it))
+//    {
+//        cout<<"Node: "<<node_it->get_id()<<endl;
+//        cout<<"Edges:";
+//        for(auto edge_it = node_it->edge_begin(); *edge_it != *(node_it->edge_end()); ++(*edge_it))
+//        {
+//            cout<<" "<<edge_it->get_node_id()<<"("<<edge_it->get_weight()<<")";
+//        }
+//        cout<<endl<<endl;
+//    }
+
+    auto fac = graph_facade();
+    fac.set_traversing(std::make_shared<dfs>());
+
+    auto gr_result = fac.execute_traversing(gr, 2);
+
+    for(auto node_it = gr_result->node_begin(); *node_it != *(gr_result->node_end()); ++(*node_it))
     {
         cout<<"Node: "<<node_it->get_id()<<endl;
         cout<<"Edges:";

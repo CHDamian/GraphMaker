@@ -45,6 +45,8 @@ public:
     graph_t build();
 
     friend class facade;
+    friend class dfs;
+    friend class bfs;
 };
 
 using builder_t = std::shared_ptr<builder>;

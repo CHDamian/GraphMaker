@@ -1,6 +1,7 @@
 #ifndef GRAPHMAKER_DISTANCE_H
 #define GRAPHMAKER_DISTANCE_H
 
+#include <memory>
 #include "../../command/adder_command.h"
 #include "distance_result.h"
 
