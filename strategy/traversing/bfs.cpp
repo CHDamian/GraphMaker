@@ -3,13 +3,6 @@
 #include <set>
 #include <queue>
 
-/**
- * @brief Wykonuje algorytm BFS na grafie.
- * @param[in] graph_ptr - Wskaźnik do grafu.
- * @param[in] node_id - Id wierzcholka grafu na ktorym rozpoczyna sie przeszukiwanie.
- * @return ...
- * @throws node_not_exist_exception Jeśli wierzchołek nie istnieje w grafie.
- */
 graph_t bfs::execute(graph_t graph_ptr, int node_id) {
     if(graph_ptr->get_node(node_id) == graph_ptr->node_end()) {
         throw node_not_exist_exception();

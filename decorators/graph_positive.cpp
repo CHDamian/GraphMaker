@@ -4,15 +4,6 @@
 
 #include "graph_positive.h"
 
-/** @brief Dodaj krawedz.
-         * Dodaj krawedz polaczona do wierzcholka o id rownym @param[in] id
-         * oraz wadze @param[in] weight.
-         * @param[in] id   – id wierzcholka, do ktorego,
-         *                   polaczona zostanie nowa krawedz,
-         * @param[in] weight – waga krawedzi.
-         * @return Iterator do krawedzi, jezeli krawedz powstala
-         *  bez zadnych konfilktow.
-         */
 graph::node_egde_pair graph_positive::add_edge(int src, int dest, int weight)
 {
     if(weight <= 0)

@@ -4,15 +4,6 @@
 
 #include "graph_tree.h"
 
-/** @brief Dodaj krawedz.
-         * Dodaj krawedz polaczona do wierzcholka o id rownym @param[in] id
-         * oraz wadze @param[in] weight.
-         * @param[in] id   – id wierzcholka, do ktorego,
-         *                   polaczona zostanie nowa krawedz,
-         * @param[in] weight – waga krawedzi.
-         * @return Iterator do krawedzi, jezeli krawedz powstala
-         *  bez zadnych konfilktow.
-         */
 void graph_tree::dfs_check_edges(std::map<std::pair<int, int>, std::pair<int, bool>> &edge_checker,
                      std::set<int> &visited, graph::node_iterator_t nod, graph::node_iterator_t parent) const
 {
@@ -36,15 +27,6 @@ void graph_tree::dfs_check_edges(std::map<std::pair<int, int>, std::pair<int, bo
     }
 }
 
-/** @brief Dodaj krawedz.
-         * Dodaj krawedz polaczona do wierzcholka o id rownym @param[in] id
-         * oraz wadze @param[in] weight.
-         * @param[in] id   – id wierzcholka, do ktorego,
-         *                   polaczona zostanie nowa krawedz,
-         * @param[in] weight – waga krawedzi.
-         * @return Iterator do krawedzi, jezeli krawedz powstala
-         *  bez zadnych konfilktow.
-         */
 bool graph_tree::is_valid() const
 {
     std::map<std::pair<int, int>, std::pair<int, bool>> edge_checker;

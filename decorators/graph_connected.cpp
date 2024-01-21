@@ -7,15 +7,6 @@
 #include <set>
 #include "graph_connected.h"
 
-/** @brief Dodaj krawedz.
-         * Dodaj krawedz polaczona do wierzcholka o id rownym @param[in] id
-         * oraz wadze @param[in] weight.
-         * @param[in] id   – id wierzcholka, do ktorego,
-         *                   polaczona zostanie nowa krawedz,
-         * @param[in] weight – waga krawedzi.
-         * @return Iterator do krawedzi, jezeli krawedz powstala
-         *  bez zadnych konfilktow.
-         */
 void graph_connected::dfs_sort(std::map<int, std::vector<int>>& visited, int& num_of_nodes, int& last_node
               , graph::node_iterator_t nod) const
 {
@@ -30,15 +21,6 @@ void graph_connected::dfs_sort(std::map<int, std::vector<int>>& visited, int& nu
     last_node = nod->get_id();
 }
 
-/** @brief Dodaj krawedz.
-         * Dodaj krawedz polaczona do wierzcholka o id rownym @param[in] id
-         * oraz wadze @param[in] weight.
-         * @param[in] id   – id wierzcholka, do ktorego,
-         *                   polaczona zostanie nowa krawedz,
-         * @param[in] weight – waga krawedzi.
-         * @return Iterator do krawedzi, jezeli krawedz powstala
-         *  bez zadnych konfilktow.
-         */
 void dfs_check(std::map<int, std::vector<int>>& visited, std::set<int>& second_visited, int& num_of_nodes, int nod)
 {
     second_visited.insert(nod);
@@ -50,15 +32,6 @@ void dfs_check(std::map<int, std::vector<int>>& visited, std::set<int>& second_v
 }
 
 
-/** @brief Dodaj krawedz.
-         * Dodaj krawedz polaczona do wierzcholka o id rownym @param[in] id
-         * oraz wadze @param[in] weight.
-         * @param[in] id   – id wierzcholka, do ktorego,
-         *                   polaczona zostanie nowa krawedz,
-         * @param[in] weight – waga krawedzi.
-         * @return Iterator do krawedzi, jezeli krawedz powstala
-         *  bez zadnych konfilktow.
-         */
 bool graph_connected::is_valid() const
 {
     std::map<int, std::vector<int>> visited;
