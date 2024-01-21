@@ -37,6 +37,13 @@ public:
      * @return Wynik zawierający odległości do wszystkich wierzchołków.
      */
     distance_result_t execute_distance(graph_t graph_ptr, int start_point);
+
+     /**
+     * @brief Wykonuje algorytm przechodzenia grafu.
+     * @param[in] graph_ptr - Wskaźnik do grafu, na którym ma być wykonany algorytm.
+     * @param[in] start_point - Wierzchołek startowy.
+     * @return Nowy graf zastosowany do algorytmu przechodzenia.
+     */
     graph_t execute_traversing(graph_t graph_ptr, int start_point);
 };
 
