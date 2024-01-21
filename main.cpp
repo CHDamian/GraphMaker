@@ -180,4 +180,48 @@ int main() {
     }
 
 #endif
+
+#ifdef POSITIVE_TEST
+    auto bul = facade::make();
+
+    bul->add_node(1);
+    bul->add_node(2);
+    bul->add_node(3);
+    bul->add_edge(1,2,12);
+    bul->add_single_edge(2,3,23);
+    bul->add_edge(1,3,-69);
+
+    try {
+        bul->make_positive();
+    } catch (graph_not_positive_exception e) {
+        cout << "Graf nie jest dodatni! 1" << endl;
+    }
+
+    bul->undo();
+
+    try {
+        bul->make_positive();
+    } catch (graph_not_positive_exception e) {
+        cout << "Graf nie jest dodatni! 2" << endl;
+    }
+
+    try {
+        bul->add_edge(1,3, -20);
+    } catch (exception e) {
+        cout << "Nie można dodać ujemnej krawedzi!" << endl;
+    }
+
+    auto gr = bul->build();
+
+    for(auto node_it = gr->node_begin(); *node_it != *(gr->node_end()); ++(*node_it))
+    {
+        cout<<"Node: "<<node_it->get_id()<<endl;
+        cout<<"Edges:";
+        for(auto edge_it = node_it->edge_begin(); *edge_it != *(node_it->edge_end()); ++(*edge_it))
+        {
+            cout<<" "<<edge_it->get_node_id()<<"("<<edge_it->get_weight()<<")";
+        }
+        cout<<endl<<endl;
+    }
+#endif
 }
