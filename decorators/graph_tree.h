@@ -22,6 +22,12 @@ protected:
 public:
     graph_tree() = delete;
 
+    /** @brief Pobierz wierzcholek.
+         * Pobiera wierzcholek o podanym @param[in] id
+         * @param[in] id - id pobieranego wierzcholka
+         * @return Wierzcholek o podanym id
+         *  bez zadnych konfilktow.
+         */
     virtual bool is_valid() const;
 
     friend class factory_tree;

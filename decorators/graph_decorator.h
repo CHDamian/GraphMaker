@@ -67,10 +67,11 @@ protected:
     virtual node_egde_pair add_edge(int src, int dest, int weight);
 
 
-    /** @brief Usun krawedz.
-         * Usuwa podana krawedz
-         *  bez zadnych konfilktow.
-         */
+    /**
+ * @brief Usuwa krawędź.
+ * @param[in] edge_to_del - Iterator krawędzi do usunięcia.
+ *  Bez konfliktów.
+ */
     virtual void del_edge(node_egde_pair edge_to_del) noexcept;
 
     virtual bool is_valid() const;

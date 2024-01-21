@@ -21,6 +21,11 @@ private:
 
 public:
 
+    /** @brief Operator porownania elementow.
+             * Operator sprawdzajacy czy porownywane elementy sa rowne
+             * @param[in] rhs – ... .
+             *  bez zadnych konfilktow.
+             */
     factory& get_instance()
     {
         static factory_tree* instance = new factory_tree();

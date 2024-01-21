@@ -17,6 +17,11 @@ protected:
 public:
     graph_connected() = delete;
 
+    /** @brief Usun wierzcholek.
+         * Usuwa podany wierzcholek
+         * @param[in] node_to_del - usuwany wierzcholek
+         *  bez zadnych konfilktow.
+         */
     virtual bool is_valid();
 
     friend class factory_connected;
