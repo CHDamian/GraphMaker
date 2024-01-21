@@ -11,8 +11,16 @@ public:
     }
 };
 
+/**< Klasa bazowa dla klas wykonujacych przejscie po grafie */
 class traversing {
 public:
+    /**
+     * @brief Funkcja wykonujaca przejscie.
+     * Funkcja wykonuje przejscie na otrzymanym grafie, zaczynajac od wybranego wierzcholka.
+     * @param[in] graph_ptr - wskaznik do grafu, na ktorym jest wykonywane przejscie.
+     * @param[in] node_id - id wierzcholka od ktorego nalezy zaczac przeszukiwanie.
+     * @return wskaznik do skierowanego drzewa utworzonego na podstawie przejscia.
+     */
     virtual graph_t execute(graph_t graph_ptr, int node_id) = 0;
 };
 
