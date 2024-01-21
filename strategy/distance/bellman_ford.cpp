@@ -4,6 +4,11 @@
 
 #include "bellman_ford.h"
 
+/**
+ * @brief Implementacja algorytmu Bellmana-Forda do obliczania najkrótszych ścieżek z jednego wierzchołka.
+ * @param[in] graph_ptr - Wskaźnik do grafu, na którym ma być wykonany algorytm.
+ * @param[out] result - Wynik zawierający odległości do wszystkich wierzchołków.
+ */
 void bellman_ford::bellman_ford_cycle(graph_t graph_ptr, distance_result_t result)
 {
     for(auto it = graph_ptr->node_begin(); *it != *(graph_ptr->node_end()); ++(*it))
@@ -19,6 +24,12 @@ void bellman_ford::bellman_ford_cycle(graph_t graph_ptr, distance_result_t resul
     }
 }
 
+/**
+ * @brief Wykrywa ujemny cykl w grafie za pomocą algorytmu Bellmana-Forda.
+ * @param[in] graph_ptr - Wskaźnik do grafu, na którym ma być wykonane sprawdzenie cyklu.
+ * @param[in] result - Wynik zawierający odległości do wszystkich wierzchołków.
+ * @throws negative_cycle_exception Jeśli zostanie wykryty ujemny cykl.
+ */
 void bellman_ford::detect_negative_cycle(graph_t graph_ptr, distance_result_t result)
 {
     for(auto it = graph_ptr->node_begin(); *it != *(graph_ptr->node_end()); ++(*it))
@@ -33,6 +44,13 @@ void bellman_ford::detect_negative_cycle(graph_t graph_ptr, distance_result_t re
     }
 }
 
+/**
+ * @brief Wykonuje algorytm Bellmana-Forda na grafie.
+ * @param[in] graph_ptr - Wskaźnik do grafu.
+ * @param[in] start_point - Początkowy wierzchołek, od którego zaczyna się algorytm.
+ * @return Wynik zawierający odległości do wszystkich wierzchołków.
+ * @throws starting_node_not_exist Jeśli początkowy wierzchołek nie istnieje w grafie.
+ */
 distance_result_t bellman_ford::execute(graph_t graph_ptr, int start_point)
 {
     if(*(graph_ptr->get_node(start_point)) == *(graph_ptr->node_end()))throw starting_node_not_exist();

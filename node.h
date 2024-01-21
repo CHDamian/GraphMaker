@@ -65,10 +65,10 @@
             }
 
                 /**
-            * @brief Operator porównania.
-            * Porównuje czy obecny iterator krawędzi jest równy podanemu iteratorowi.
-            * @param[in] rhs – Iterator krawędzi do porównania.
-            * @return True, jeśli iteratory są równe; false w przeciwnym razie.
+            * @brief Operator porownania.
+            * Porownuje czy obecny iterator krawedzi jest rowny podanemu iteratorowi.
+            * @param[in] rhs – Iterator krawedzi do porównania.
+            * @return True, jesli iteratory sa rowne; false w przeciwnym razie.
             */
             bool operator==(edge_iterator& rhs)
             {

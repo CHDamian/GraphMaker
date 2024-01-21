@@ -3,6 +3,7 @@
 
 #include "../../command/adder_command.h"
 
+/**< Wyjatek wyrzucany w przypadku braku wierzcholka o podanym id */
 class node_not_exist_exception : public std::exception {
 public:
     [[nodiscard]] const char *what() const noexcept override {
