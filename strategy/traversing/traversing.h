@@ -5,7 +5,7 @@
 
 class traversing {
 public:
-    virtual graph_t execute(graph_t graph_ptr) = 0;
+    virtual graph_t execute(graph_t graph_ptr, int node_id) = 0;
 };
 
 using traversing_t = std::shared_ptr<traversing>;

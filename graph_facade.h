@@ -15,7 +15,7 @@ public:
     void set_traversing(traversing_t algorithm) noexcept;
     void set_distance(distance_t algorithm) noexcept;
     distance_result_t execute_distance(graph_t graph_ptr);
-    graph_t execute_traversing(graph_t graph_ptr);
+    graph_t execute_traversing(graph_t graph_ptr, int node_id);
 };
 
 
