@@ -22,7 +22,9 @@ public:
 #include "strategy/traversing/dfs.h"
 #include "strategy/traversing/bfs.h"
 
-#define DFS_TEST
+//#define BFS_TEST
+#define DIJKSTRA_TEST
+#define TEST_DAMIANA
 
 int main() {
 
@@ -117,6 +119,17 @@ int main() {
 
     distance_result_t result = bellman_ford::get_instance().execute(gr, 1);
 
+
+    for(auto it = result->begin(); it != result->end(); it++)
+    {
+        cout<<"Node: "<<it->first<<" | Edge: "<<it->second<<endl;
+    }
+
+#endif
+
+#ifdef DIJKSTRA_TEST
+
+    distance_result_t result = dijkstra::get_instance().execute(gr, 1);
 
     for(auto it = result->begin(); it != result->end(); it++)
     {

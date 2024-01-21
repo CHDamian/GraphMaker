@@ -44,4 +44,6 @@ add_executable(GraphMaker main.cpp node.cpp node.h graph.cpp graph.h graph_maker
         strategy/traversing/bfs.h
         strategy/traversing/bfs.cpp
         strategy/distance/bellman_ford.cpp
-        strategy/distance/bellman_ford.h)
+        strategy/distance/bellman_ford.h
+        strategy/distance/dijkstra.cpp
+        strategy/distance/dijkstra.h)
