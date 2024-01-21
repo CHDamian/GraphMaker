@@ -47,5 +47,6 @@ public:
     friend class facade;
 };
 
+using builder_t = std::shared_ptr<builder>;
 
 #endif //GRAPHMAKER_BUILDER_H
