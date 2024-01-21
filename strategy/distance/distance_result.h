@@ -14,8 +14,8 @@ class distance_result {
     void del(int id);
 
 public:
-    const int INFINITY_DISTANCE = INT32_MAX;
-    const int NEG_INFINITY_DISTANCE = INT32_MIN;
+    static const int INFINITY_DISTANCE = INT32_MAX;
+    static const int NEG_INFINITY_DISTANCE = INT32_MIN;
 
     using distance_iterator = std::map<int, int>::const_iterator;
 

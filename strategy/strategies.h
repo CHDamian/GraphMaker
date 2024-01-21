@@ -7,6 +7,7 @@
 
 #include "distance/distance.h"
 #include "distance/distance_result.h"
+#include "distance/bellman_ford.h"
 
 
 #endif //GRAPHMAKER_STRATEGIES_H
