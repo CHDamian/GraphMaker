@@ -16,7 +16,7 @@ public:
 class distance {
 protected:
 
-        /**
+    /**
      * @brief Dodaje wierzchołek o podanym identyfikatorze do wyniku odległości.
      * Inicjalizuje odległość na nieskończoność.
      * @param[in] result_proxy - Wskaźnik na wynik odległości (distance_result_t).
@@ -24,7 +24,7 @@ protected:
      */
     void add_dist(distance_result_t result_proxy, int id);
 
-        /**
+    /**
      * @brief Dodaje wierzchołek o podanym identyfikatorze i odległości do wyniku odległości.
      * @param[in] result_proxy - Wskaźnik na wynik odległości (distance_result_t).
      * @param[in] id - Identyfikator wierzchołka.
@@ -32,7 +32,7 @@ protected:
      */
     void add_dist(distance_result_t result_proxy, int id, int dist);
 
-        /**
+    /**
      * @brief Sprawdza, czy odległość dla danego identyfikatora istnieje w wyniku odległości.
      * @param[in] result_proxy - Wskaźnik na wynik odległości (distance_result_t).
      * @param[in] id - Identyfikator wierzchołka.
@@ -40,7 +40,7 @@ protected:
      */
     bool exists_dist(distance_result_t result_proxy, int id) const;
 
-        /**
+    /**
      * @brief Pobiera odległość dla danego identyfikatora z wyniku odległości.
      * @param[in] result_proxy - Wskaźnik na wynik odległości (distance_result_t).
      * @param[in] id - Identyfikator wierzchołka.
@@ -48,7 +48,7 @@ protected:
      */
     int get_dist(distance_result_t result_proxy, int id);
 
-        /**
+    /**
      * @brief Usuwa odległość dla danego identyfikatora z wyniku odległości.
      * @param[in] result_proxy - Wskaźnik na wynik odległości (distance_result_t).
      * @param[in] id - Identyfikator wierzchołka.
@@ -56,6 +56,13 @@ protected:
     void del_dist(distance_result_t result_proxy, int id);
 
 public:
+    /**
+    * @brief Wykonuje algorytm.
+    * Wykonuje zadany algorytm.
+    * @param[in] graph_ptr - Wskaznik do grafu, na ktorym ma być wykonany algorytm.
+    * @param[in] start_point punkt startowy algorytmu
+    * @return wynik algorytmu.
+    */
     virtual distance_result_t execute(graph_t graph_ptr, int start_point) = 0;
 };
 

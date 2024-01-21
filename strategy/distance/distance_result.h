@@ -7,7 +7,7 @@
 class distance_result {
     std::map<int, int> distance_calc;
 
-        /**
+    /**
      * @brief Dodaje wierzchołek o podanym identyfikatorze do wyniku.
      * Inicjalizuje odległość na nieskończoność.
      * @param[in] id - Identyfikator wierzchołka.
@@ -28,27 +28,42 @@ class distance_result {
      */
     bool exists(int id) const;
 
-        /**
+    /**
      * @brief Pobiera odległość dla danego identyfikatora z wyniku.
      * @param[in] id - Identyfikator wierzchołka.
      * @return Odległość do wierzchołka.
      */
     int get(int id);
 
-        /**
+    /**
      * @brief Usuwa odległość dla danego identyfikatora z wyniku.
      * @param[in] id - Identyfikator wierzchołka.
      */
     void del(int id);
 
 public:
-    static const int INFINITY_DISTANCE = INT32_MAX;
-    static const int NEG_INFINITY_DISTANCE = INT32_MIN;
+    static const int INFINITY_DISTANCE = INT32_MAX; /**< Odleglosc nieskonczonosc */
+    static const int NEG_INFINITY_DISTANCE = INT32_MIN; /**< Odleglosc minus nieskonczonosc */
 
-    using distance_iterator = std::map<int, int>::const_iterator;
+    using distance_iterator = std::map<int, int>::const_iterator; /**< Const Iterator struktury */
 
+    /** @brief Poczatek listy wynikowej.
+     * Zwraca const iterator na poczatek listy wynikowej
+     * @return Const iterator na poczatek listy.
+     */
     distance_iterator begin() const;
+
+    /** @brief Koniec listy wynikowej.
+     * Zwraca const iterator na koniec listy wynikowej
+     * @return Const iterator na koniec listy.
+     */
     distance_iterator end() const;
+
+    /** @brief Zwraca informacje o wierzcholku.
+     * Zwraca const iterator na szukany wierzcholek lub koniec listy
+     * jezeli wierzcholek nie istnieje.
+     * @return Const iterator na wierzcholek.
+     */
     distance_iterator find(int id) const;
 
     friend class distance;
