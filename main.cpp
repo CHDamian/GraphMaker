@@ -25,7 +25,9 @@ public:
 
 //#define DIJKSTRA_TEST
 //#define TEST_DAMIANA
-#define TREE_TEST
+//#define TREE_TEST
+//#define POSITIVE_TEST
+#define CONNECTED_TEST
 
 int main() {
 
@@ -82,6 +84,50 @@ int main() {
         cout<<"Zlapano: "<<e.what()<<endl;
     }
     bul->add_single_edge(3,2,23);
+
+    gr = bul->build();
+
+    for(auto node_it = gr->node_begin(); *node_it != *(gr->node_end()); ++(*node_it))
+    {
+        cout<<"Node: "<<node_it->get_id()<<endl;
+        cout<<"Edges:";
+        for(auto edge_it = node_it->edge_begin(); *edge_it != *(node_it->edge_end()); ++(*edge_it))
+        {
+            cout<<" "<<edge_it->get_node_id()<<"("<<edge_it->get_weight()<<")";
+        }
+        cout<<endl<<endl;
+    }
+
+#endif
+
+#ifdef CONNECTED_TEST
+    auto fac = graph_facade();
+    auto bul = fac.make_graph();
+
+    bul->add_node(1);
+    bul->add_node(2);
+    bul->add_node(3);
+    bul->add_node(4);
+    bul->add_edge(1,2,12);
+    bul->add_single_edge(2,3,23);
+
+    graph_t gr = NULL;
+    bul->make_connected();
+
+    try{
+        gr = bul->build();
+    }catch (exception e)
+    {
+        cout<<"Zlapano: "<<e.what()<<endl;
+    }
+    bul->add_edge(3,4,34);
+    try{
+        gr = bul->build();
+    }catch (exception e)
+    {
+        cout<<"Zlapano: "<<e.what()<<endl;
+    }
+    bul->add_single_edge(4,1,41);
 
     gr = bul->build();
 

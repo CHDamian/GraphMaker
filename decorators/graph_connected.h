@@ -23,13 +23,13 @@ public:
          * @param[in] node_to_del - usuwany wierzcholek
          *  bez zadnych konfilktow.
          */
-    virtual bool is_valid();
+    virtual bool is_valid() const;
 
     friend class factory_connected;
 
 private:
     void dfs_sort(std::map<int, std::vector<int>>& visited, int& num_of_nodes, int& last_node
-            , graph::node_iterator_t nod);
+            , graph::node_iterator_t nod) const;
 };
 
 #endif //GRAPHMAKER_GRAPH_CONNECTED_H
