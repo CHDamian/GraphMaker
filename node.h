@@ -1,3 +1,11 @@
+/** @file
+ * Deklaracja modulu wierzcholka
+ *
+ * @author Damian Chanko, Maciej Chanko, Pawel Krol
+ * @date 21.01.2024
+ */
+
+
 #ifndef GRAPHMAKER_NODE_H
 #define GRAPHMAKER_NODE_H
 
@@ -11,6 +19,7 @@
 
     using node_t = std::shared_ptr<node>;
 
+    /**< Wyjatek wyrzucany przy probie stworzenia krawedzi, ktora juz istnieje */
     class multiple_edges_adding_exception : public std::exception {
     public:
         [[nodiscard]] const char *what() const noexcept override {
@@ -21,14 +30,15 @@
     class node {
     private:
 
-        int id;
-        edge_map edges;
+        int id; /**< Id wierzcholka */
+        edge_map edges; /**< Krawedz grafu */
 
 
         node(int id) : id(id) {}
 
     public:
 
+        /**< Iterator krawedzi */
         class edge_iterator {
         private:
             std::map<int, int>::iterator it;
@@ -46,20 +56,42 @@
                 it--;
             }
 
+            /** @brief Operator porownania elementow.
+         * Operator sprawdzajacy czy porownywane elementy sa rowne
+         * @param[in] rhs – ... .
+         *  bez zadnych konfilktow.
+         */
             bool operator==(edge_iterator& rhs)
             {
                 return this->it == rhs.it;
             }
 
+            /** @brief Operator porownania elementow.
+         * Operator sprawdzajacy czy porownywane elementy sa rozne
+         * @param[in] rhs – ... .
+         *  bez zadnych konfilktow.
+         */
             bool operator!=(edge_iterator& rhs)
             {
                 return this->it != rhs.it;
             }
 
+
+            /** @brief Pobierz id wierzcholka.
+         * Pobiera id wierzcholka
+         * @return Id wierzcholka
+         *  bez zadnych konfilktow.
+         */
             int get_node_id() const {
                 return it->first;
             }
 
+
+            /** @brief Pobierz wage krawedzi.
+         * Pobiera wage krawedzi
+         * @return Waga krawedzi
+         *  bez zadnych konfilktow.
+         */
             int get_weight() const {
                 return it->second;
             }
@@ -80,8 +112,24 @@
         friend class graph;
 
     private:
+
+        /** @brief Dodaj krawedz.
+         * Dodaj krawedz polaczona do wierzcholka o id rownym @param[in] id
+         * oraz wadze @param[in] weight.
+         * @param[in] id   – id wierzcholka, do ktorego,
+         *                   polaczona zostanie nowa krawedz,
+         * @param[in] weight – waga krawedzi.
+         * @return Iterator do krawedzi, jezeli krawedz powstala
+         *  bez zadnych konfilktow.
+         */
         edge_iterator_t add_edge(int id, int weight);
 
+
+        /** @brief Usun krawedz.
+         * Usun krawedz @param[in] edge_to_del
+         * @param[in] edge_to_del – krawedz grafu do usuniecia.
+         *  bez zadnych konfilktow.
+         */
         void del_edge(edge_iterator_t edge_to_del) noexcept;
 
     };

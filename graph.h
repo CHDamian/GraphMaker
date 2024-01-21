@@ -19,9 +19,9 @@
     };
 
     class graph {
-    private:
+    protected:
         bool is_prototype;
-        node_map nodes;
+        node_map nodes; /**< Wierzcholek */
 
         graph() : is_prototype(true) {}
 
@@ -43,16 +43,31 @@
                 it--;
             }
 
+            /** @brief Operator porownania elementow.
+         * Operator sprawdzajacy czy porownywane elementy sa rowne
+         * @param[in] rhs – ... .
+         *  bez zadnych konfilktow.
+         */
             bool operator==(node_iterator& rhs)
             {
                 return this->it == rhs.it;
             }
 
+            /** @brief Operator porownania elementow.
+         * Operator sprawdzajacy czy porownywane elementy sa rozne
+         * @param[in] rhs – ... .
+         *  bez zadnych konfilktow.
+         */
             bool operator!=(node_iterator& rhs)
             {
                 return this->it != rhs.it;
             }
 
+            /** @brief Pobierz id .
+         * Pobiera id ...
+         * @return Id ...
+         *  bez zadnych konfilktow.
+         */
             int get_id() {
                 return it->first;
             }
@@ -71,11 +86,11 @@
         using node_iterator_t = std::shared_ptr<node_iterator>;
         using node_egde_pair = std::pair<node_iterator_t, node::edge_iterator_t>;
 
-        node_iterator_t node_begin();
+        virtual node_iterator_t node_begin();
 
-        node_iterator_t node_end();
+        virtual node_iterator_t node_end();
 
-        node_iterator_t get_node(int id);
+        virtual node_iterator_t get_node(int id);
 
         friend class builder;
 
@@ -85,18 +100,40 @@
 
         friend class adder_single_edge;
 
+        friend class graph_decorator;
+
     protected:
+
 
         virtual node_iterator_t add_node(int id);
 
+
+        /** @brief Dodaj krawedz.
+         * Dodaje krawedz ...
+         * @param[in] src - ...
+         * @param[in] dest - ...
+         * @param[in] weight - waga krawedzi
+         * @return Krawedz
+         *  bez zadnych konfilktow.
+         */
         virtual node_egde_pair add_edge(int src, int dest, int weight);
 
+        /** @brief Usun krawedz.
+         * Usun krawedz @param[in] edge_to_del
+         * @param[in] edge_to_del – krawedz grafu do usuniecia.
+         *  bez zadnych konfilktow.
+         */
         virtual void del_edge(node_egde_pair edge_to_del) noexcept;
 
         virtual bool is_valid() const;
 
-        void set_prototype(bool prototype) noexcept;
+        virtual void set_prototype(bool prototype) noexcept;
 
+        /** @brief Usun wierzcholek.
+         * Usuwa podany wierzcholek
+         * @param[in] node_to_del - usuwany wierzcholek
+         *  bez zadnych konfilktow.
+         */
         virtual void del_node(node_iterator_t node_to_del) noexcept;
 
     };
