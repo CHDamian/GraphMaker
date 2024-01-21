@@ -27,10 +27,10 @@ void graph_tree::dfs_check_edges(std::map<std::pair<int, int>, std::pair<int, bo
         }
         else
         {
-            if(edge.first == edge.second)throw new graph_not_tree_exception();
-            if(edge_it->get_node_id() != parent->get_id())throw new graph_not_tree_exception();
-            if(edge_checker[edge].first != edge_it->get_weight())throw new graph_not_tree_exception();
-            if(edge_checker[edge].second)throw new graph_not_tree_exception();
+            if(edge.first == edge.second)throw graph_not_tree_exception();
+            if(edge_it->get_node_id() != parent->get_id())throw graph_not_tree_exception();
+            if(edge_checker[edge].first != edge_it->get_weight())throw graph_not_tree_exception();
+            if(edge_checker[edge].second)throw graph_not_tree_exception();
             edge_checker[edge].second = true;
         }
     }
