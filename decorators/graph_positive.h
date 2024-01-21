@@ -18,13 +18,12 @@ public:
     graph_positive() = delete;
 
     /** @brief Dodaj krawedz.
-         * Dodaje krawedz o podanym @param[in] id
-         * @param[in] src - ...
-         * @param[in] dest - ...
-         * @param[in] weight - waga krawedzi
-         * @return Krawedz
-         *  bez zadnych konfilktow.
-         */
+     * Dodaje krawedz do grafu.
+     * @param[in] src - wierzcholek wychodzacy
+     * @param[in] dest - wierzcholek wchodzacy
+     * @param[in] weight - waga krawedzi
+     * @return Para iteratorow do wierzcholka wychodzacego i krawedzi.
+     */
     virtual node_egde_pair add_edge(int src, int dest, int weight);
 
     friend class factory_positive;

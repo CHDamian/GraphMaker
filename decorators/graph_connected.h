@@ -18,16 +18,22 @@ protected:
 public:
     graph_connected() = delete;
 
-    /** @brief Usun wierzcholek.
-         * Usuwa podany wierzcholek
-         * @param[in] node_to_del - usuwany wierzcholek
-         *  bez zadnych konfilktow.
-         */
+    /** @brief Czy graf jest ok.
+     * Sprawdza, czy warunki nalozone na graf sa spelnione.
+     * @return True jezeli sa spelnione, lub false w przeciwnym wypadku.
+     */
     virtual bool is_valid() const;
 
     friend class factory_connected;
 
 private:
+    /** @brief Wykonaj sortowanie topologiczne.
+     * Wykonaj pojedynczego dfsa do sortowania topologicznego
+     * @param[in] visited - mapa odwiedzonych
+     * @param[in] num_of_nodes - liczba odwiedzonych wierzcholkow
+     * @param[in] last_node - wierzcholek ostatni co do czasu wyjscia
+     * @param[in] nod - przegladany wierzcholek
+     */
     void dfs_sort(std::map<int, std::vector<int>>& visited, int& num_of_nodes, int& last_node
             , graph::node_iterator_t nod) const;
 };

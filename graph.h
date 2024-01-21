@@ -117,7 +117,7 @@
          */
         virtual node_iterator_t node_end();
 
-        /** @brief Dodaj krawedz.
+        /** @brief Znajdz krawedz.
          * Znajdz wierzcholek o id rownym @param[in] id
          * @param[in] id   – id wierzcholka
          * @return Iterator do wierzcholka, jezeli istnieje
@@ -137,7 +137,11 @@
 
     protected:
 
-
+        /** @brief Dodaj wierzcholek.
+         * Dodaje wierzcholek o podanym @param[in] id
+         * @param[in] id - id dodawanego wierzcholka
+         * @return Iterator do wierzcholka o podanym id
+         */
         virtual node_iterator_t add_node(int id);
 
 
@@ -157,11 +161,15 @@
         virtual void del_edge(node_egde_pair edge_to_del) noexcept;
 
         /** @brief Czy graf jest ok.
-         * Sprawdza, czy warunki nalozone na graf sa spelnikne.
+         * Sprawdza, czy warunki nalozone na graf sa spelnione.
          * @return True jezeli sa spelnione, lub false w przeciwnym wypadku.
          */
         virtual bool is_valid() const;
 
+        /** @brief Ustawia czy graf jest w produkcji.
+         * Ustawia, czy graf jest jeszcze tworzony czy juz nie
+         * @param[in] prototype – Czy w trakcie tworzenia
+         */
         virtual void set_prototype(bool prototype) noexcept;
 
         /** @brief Usun wierzcholek.
