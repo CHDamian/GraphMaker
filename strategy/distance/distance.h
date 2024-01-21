@@ -6,8 +6,9 @@
 
 class distance {
 public:
-    virtual distance_result execute(graph_t graph_ptr) = 0;
+    virtual distance_result_t execute(graph_t graph_ptr) = 0;
 };
 
+using distance_t = std::shared_ptr<distance>;
 
 #endif //GRAPHMAKER_DISTANCE_H
