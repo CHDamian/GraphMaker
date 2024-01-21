@@ -20,7 +20,7 @@ public:
              * @param[in] rhs – ... .
              *  bez zadnych konfilktow.
              */
-    factory& get_instace()
+    static factory& get_instace()
     {
         static factory_positive* instance = new factory_positive();
         return *instance;
