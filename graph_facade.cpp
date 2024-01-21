@@ -12,10 +12,10 @@ void graph_facade::set_distance(distance_t algorithm) noexcept {
     distance_algorithm = algorithm;
 }
 
-distance_result_t graph_facade::execute_distance(graph_t graph_ptr) {
-    return distance_algorithm->execute(graph_ptr);
+distance_result_t graph_facade::execute_distance(graph_t graph_ptr, int start_point) {
+    return distance_algorithm->execute(graph_ptr, start_point);
 }
 
-graph_t graph_facade::execute_traversing(graph_t graph_ptr, int node_id) {
-    return traversing_algorithm->execute(graph_ptr, node_id);
+graph_t graph_facade::execute_traversing(graph_t graph_ptr, int start_point) {
+    return traversing_algorithm->execute(graph_ptr, start_point);
 }
