@@ -27,7 +27,7 @@ public:
              * @param[in] rhs – ... .
              *  bez zadnych konfilktow.
              */
-    factory& get_instance()
+    static factory& get_instance()
     {
         static factory_tree* instance = new factory_tree();
         return *instance;
