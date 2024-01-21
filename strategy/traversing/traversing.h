@@ -1,3 +1,10 @@
+/** @file
+ * Deklaracja modulu strategii przechodzenia po grafie
+ *
+ * @author Damian Chanko, Maciej Chanko, Pawel Krol
+ * @date 21.01.2024
+ */
+
 #ifndef GRAPHMAKER_TRAVERSING_H
 #define GRAPHMAKER_TRAVERSING_H
 
