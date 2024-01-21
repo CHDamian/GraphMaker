@@ -45,6 +45,7 @@ public:
     graph_t build();
 
     friend class facade;
+    friend class graph_facade;
     friend class dfs;
     friend class bfs;
 };

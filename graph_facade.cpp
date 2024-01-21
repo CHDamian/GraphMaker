@@ -1,7 +1,7 @@
 #include "graph_facade.h"
 
 builder_t graph_facade::make_graph() {
-    return builder_t();
+    return builder_t(new builder());
 }
 
 void graph_facade::set_traversing(traversing_t algorithm) noexcept {
