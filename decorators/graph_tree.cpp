@@ -112,7 +112,7 @@ void graph_tree::del_edge(graph::node_egde_pair edge_to_del) noexcept
 void graph_tree::find_and_union() noexcept
 {
     united.clear();
-    for(auto it = graph_ptr->node_begin(); it != graph_ptr->node_end(); ++(*it))
+    for(auto it = graph_ptr->node_begin(); *it != *(graph_ptr->node_end()); ++(*it))
     {
         int child = it->get_id();
         united[child] = child;

@@ -29,8 +29,8 @@ void factory_tree::dfs_check_edges(std::shared_ptr<graph> graph_ptr, std::map<st
         else
         {
             if(edge.first == edge.second)throw new graph_not_tree_exception();
-            if(edge_it->get_node_id() != parent->get_id())throw new graph_not_tree_exception();
-            if(edge_checker[edge].first != edge_it->get_weight())throw new graph_not_tree_exception();
+            if(edge_it->get_node_id() != parent->get_id())throw graph_not_tree_exception();
+            if(edge_checker[edge].first != edge_it->get_weight())throw graph_not_tree_exception();
             if(edge_checker[edge].second)throw new graph_not_tree_exception();
             edge_checker[edge].second = true;
         }
@@ -44,7 +44,7 @@ std::shared_ptr<graph> factory_tree::create(std::shared_ptr<graph> graph_ptr)
     std::map<std::pair<int, int>, std::pair<int, bool>> edge_checker;
     std::set<int> visited;
 
-    for(auto it = graph_ptr->node_begin(); it != graph_ptr->node_end(); ++(*it))
+    for(auto it = graph_ptr->node_begin(); *it != *(graph_ptr->node_end()); ++(*it))
     {
         if(visited.find(it->get_id()) == visited.end())dfs_check_edges(graph_ptr, edge_checker, visited, it, it);
     }
