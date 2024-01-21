@@ -17,7 +17,7 @@ graph::node_egde_pair graph_positive::add_edge(int src, int dest, int weight)
 {
     if(weight <= 0)
     {
-        throw new graph_not_positive_exception();
+        throw graph_not_positive_exception();
     }
     return graph_decorator::add_edge(src, dest, weight);
 }

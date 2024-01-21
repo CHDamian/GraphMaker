@@ -11,7 +11,7 @@ graph::node_iterator_t graph::add_node(int id)
 {
     if(nodes.find(id) != nodes.end())
     {
-        throw new multiple_nodes_adding_exception();
+        throw multiple_nodes_adding_exception();
     }
     auto new_node = std::shared_ptr<node>(new node(id));
     auto it = nodes.insert({id, new_node}).first;

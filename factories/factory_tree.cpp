@@ -28,10 +28,10 @@ void factory_tree::dfs_check_edges(std::shared_ptr<graph> graph_ptr, std::map<st
         }
         else
         {
-            if(edge.first == edge.second)throw new graph_not_tree_exception();
+            if(edge.first == edge.second)throw graph_not_tree_exception();
             if(edge_it->get_node_id() != parent->get_id())throw graph_not_tree_exception();
             if(edge_checker[edge].first != edge_it->get_weight())throw graph_not_tree_exception();
-            if(edge_checker[edge].second)throw new graph_not_tree_exception();
+            if(edge_checker[edge].second)throw graph_not_tree_exception();
             edge_checker[edge].second = true;
         }
     }
