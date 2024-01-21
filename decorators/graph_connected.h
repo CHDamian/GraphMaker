@@ -8,6 +8,7 @@
 
 #include "graph_decorator.h"
 
+/**< Dekorator grafu spojnego */
 class graph_connected : public graph_decorator
 {
 protected:

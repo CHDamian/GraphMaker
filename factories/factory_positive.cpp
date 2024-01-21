@@ -7,6 +7,12 @@
 #include "../decorators/graph_positive.h"
 
 
+/** @brief Stworz graf dodatni.
+         * Tworzy graf dodatni
+         * @param[in] graph_ptr - shared pointer
+         * @return ...
+         *  bez zadnych konfilktow.
+         */
 std::shared_ptr<graph> factory_positive::create(std::shared_ptr<graph> graph_ptr)
 {
     for(auto nod_it = graph_ptr->node_begin(); nod_it != graph_ptr->node_end(); ++(*nod_it))

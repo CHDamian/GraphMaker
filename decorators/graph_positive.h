@@ -8,6 +8,7 @@
 
 #include "graph_decorator.h"
 
+/**< Dekorator grafu dodatniego */
 class graph_positive : public graph_decorator
 {
 protected:

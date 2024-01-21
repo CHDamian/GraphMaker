@@ -8,6 +8,7 @@
 
 #include "factory.h"
 
+
 class factory_positive : public factory{
 protected:
     factory_positive() = default;
