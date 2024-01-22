@@ -1,3 +1,10 @@
+/** @file
+ * Deklaracja modulu rezultatu algorytmow odleglosci
+ *
+ * @author Damian Chanko, Maciej Chanko, Pawel Krol
+ * @date 21.01.2024
+ */
+
 #ifndef GRAPHMAKER_DISTANCE_RESULT_H
 #define GRAPHMAKER_DISTANCE_RESULT_H
 

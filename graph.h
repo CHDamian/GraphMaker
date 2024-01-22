@@ -1,7 +1,9 @@
-//
-// Created by damia on 15.01.2024.
-//
-
+/** @file
+ * Deklaracja modulu grafu
+ *
+ * @author Damian Chanko, Maciej Chanko, Pawel Krol
+ * @date 21.01.2024
+ */
 #ifndef GRAPHMAKER_GRAPH_H
 #define GRAPHMAKER_GRAPH_H
 

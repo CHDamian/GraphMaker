@@ -1,6 +1,9 @@
-//
-// Created by damia on 21.01.2024.
-//
+/** @file
+ * Deklaracja modulu algorytmu dijkstry
+ *
+ * @author Damian Chanko, Maciej Chanko, Pawel Krol
+ * @date 21.01.2024
+ */
 
 #ifndef GRAPHMAKER_DIJKSTRA_H
 #define GRAPHMAKER_DIJKSTRA_H

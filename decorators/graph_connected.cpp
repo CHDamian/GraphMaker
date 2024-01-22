@@ -7,15 +7,6 @@
 #include <set>
 #include "graph_connected.h"
 
-/** @brief Dodaj krawedz.
-         * Dodaj krawedz polaczona do wierzcholka o id rownym @param[in] id
-         * oraz wadze @param[in] weight.
-         * @param[in] id   – id wierzcholka, do ktorego,
-         *                   polaczona zostanie nowa krawedz,
-         * @param[in] weight – waga krawedzi.
-         * @return Iterator do krawedzi, jezeli krawedz powstala
-         *  bez zadnych konfilktow.
-         */
 void graph_connected::dfs_sort(std::map<int, std::vector<int>>& visited, int& num_of_nodes, int& last_node
               , graph::node_iterator_t nod) const
 {
