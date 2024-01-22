@@ -1,3 +1,10 @@
+/** @file
+ * Deklaracja interfejsow algorytmow odleglosci
+ *
+ * @author Damian Chanko, Maciej Chanko, Pawel Krol
+ * @date 21.01.2024
+ */
+
 #ifndef GRAPHMAKER_DISTANCE_H
 #define GRAPHMAKER_DISTANCE_H
 

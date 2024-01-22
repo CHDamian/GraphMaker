@@ -1,3 +1,10 @@
+/** @file
+ * Deklaracja commanda wierzcholkow
+ *
+ * @author Damian Chanko, Maciej Chanko, Pawel Krol
+ * @date 21.01.2024
+ */
+
 #ifndef GRAPHMAKER_ADDER_NODE_H
 #define GRAPHMAKER_ADDER_NODE_H
 

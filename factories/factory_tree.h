@@ -1,7 +1,9 @@
-//
-// Created by macie on 1/20/2024.
-//
-
+/** @file
+ * Deklaracja fabryki drzew
+ *
+ * @author Damian Chanko, Maciej Chanko, Pawel Krol
+ * @date 21.01.2024
+ */
 #ifndef GRAPHMAKER_FACTORY_TREE_H
 #define GRAPHMAKER_FACTORY_TREE_H
 

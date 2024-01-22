@@ -1,3 +1,10 @@
+/** @file
+ * Deklaracja commanda krawedzi
+ *
+ * @author Damian Chanko, Maciej Chanko, Pawel Krol
+ * @date 21.01.2024
+ */
+
 #ifndef GRAPHMAKER_ADDER_EDGE_H
 #define GRAPHMAKER_ADDER_EDGE_H
 

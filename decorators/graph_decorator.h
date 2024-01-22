@@ -1,3 +1,10 @@
+/** @file
+ * Deklaracja interfejsu dekoratora
+ *
+ * @author Damian Chanko, Maciej Chanko, Pawel Krol
+ * @date 21.01.2024
+ */
+
 #ifndef GRAPHMAKER_GRAPH_DECORATOR_H
 #define GRAPHMAKER_GRAPH_DECORATOR_H
 
